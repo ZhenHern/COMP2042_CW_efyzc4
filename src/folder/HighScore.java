@@ -1,4 +1,4 @@
-package test;
+package folder;
 
 import java.io.*;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class HighScore {
     HighScore(String filename) {
         this.filename=filename;
         try {
-            File myObj = new File("C:\\Users\\User\\Desktop\\Brick_Destroy-master\\"+filename);
+            File myObj = new File("C:\\Users\\User\\Desktop\\hi\\"+filename);
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
                 System.out.println("Absolute path: " + myObj.getAbsolutePath());

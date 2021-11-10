@@ -1,5 +1,5 @@
 /*
- *  Brick Destroy - A simple Arcade video game
+ *  test.Brick Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package folder;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class SteelBrick extends Brick {
 
-    private static final String NAME = "Steel Brick";
+    private static final String NAME = "Steel test.Brick";
     private static final Color DEF_INNER = new Color(203, 203, 201);
     private static final Color DEF_BORDER = Color.BLACK;
     private static final int STEEL_STRENGTH = 1;

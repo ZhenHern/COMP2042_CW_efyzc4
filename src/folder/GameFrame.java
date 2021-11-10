@@ -1,5 +1,5 @@
 /*
- *  Brick Destroy - A simple Arcade video game
+ *  test.Brick Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -15,19 +15,20 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package folder;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowListener;
 
 
+/**
+ * GameFrame class
+ */
 public class GameFrame extends JFrame implements WindowFocusListener {
 
-    private static final String DEF_TITLE = "Brick Destroy";
+    private static final String DEF_TITLE = "test.Brick Destroy";
 
     private GameBoard gameBoard;
     private HomeMenu homeMenu;
@@ -38,6 +39,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     private boolean gaming;
 
+    /**
+     * class constructor for GameFrame
+     */
     public GameFrame(){
         super();
 
@@ -62,6 +66,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     *method to give a fixed setting to the newly created window
+     *
+     */
     public void initialize(){
         this.setTitle(DEF_TITLE);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -70,6 +78,11 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setVisible(true);
     }
 
+    /**
+     * method to open the game board.
+     * @param stage To determine which stage is being chosen
+     *
+     */
     public void enableGameBoard(int stage){
         this.dispose();
         this.remove(stageMenu);
@@ -82,6 +95,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * method to open the main menu
+     */
     public void enableMainMenu(){
         this.dispose();
         this.remove(homeMenu);
@@ -97,6 +113,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.addWindowFocusListener(this);
     }
 
+    /**
+     * method to open the info menu
+     */
     public void enableInfoMenu(){
         this.dispose();
         this.remove(mainMenu);
@@ -106,6 +125,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.addWindowFocusListener(this);
     }
 
+    /**
+     * method to open the leaderboard
+     */
     public void enableLeaderboard(){
         this.dispose();
         this.remove(mainMenu);
@@ -115,6 +137,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.addWindowFocusListener(this);
     }
 
+    /**
+     * method to open the stage menu for stages selection
+     */
     public void enableStageMenu(){
         this.dispose();
         this.remove(mainMenu);
@@ -125,10 +150,9 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     }
 
 
-
-
-
-
+    /**
+     * method to locate the window at the center of the screen
+     */
     private void autoLocate(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (size.width - this.getWidth()) / 2;
@@ -137,6 +161,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     }
 
 
+    /**
+     * method to determine whether the window is getting the focus or not
+     * @param windowEvent An event that happen to the window
+     */
     @Override
     public void windowGainedFocus(WindowEvent windowEvent) {
         /*
@@ -150,6 +178,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         gaming = true;
     }
 
+    /**
+     * method to determine whether the focus for the window is lost or not
+     * @param windowEvent An event that happen to the window
+     */
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {
         if(gaming&&gameBoard!=null)

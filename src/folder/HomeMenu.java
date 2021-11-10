@@ -1,5 +1,5 @@
 /*
- *  Brick Destroy - A simple Arcade video game
+ *  test.Brick Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package folder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +26,9 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
 
+/**
+ * HomeMenu class
+ */
 public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
 
     private static final String GREETINGS = "Welcome to:";
@@ -62,6 +65,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean menuClicked;
 
 
+    /**
+     * class constructor for HomeMenu with two parameters
+     * @param owner The object of GameFrame
+     * @param area The dimension of the home menu window
+     */
     public HomeMenu(GameFrame owner,Dimension area){
 
         this.setFocusable(true);
@@ -94,11 +102,20 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
 
+    /**
+     * method that is called automatically in the background and when components
+     * need to be painted
+     * @param g object of Graphics
+     */
     public void paint(Graphics g){
         drawMenu((Graphics2D)g);
     }
 
 
+    /**
+     * method to draw the design of the home menu
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     public void drawMenu(Graphics2D g2d){
 
         drawContainer(g2d);
@@ -126,6 +143,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prevColor);
     }
 
+    /**
+     * method to draw the design of the home menu container
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
 
@@ -147,6 +168,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prev);
     }
 
+    /**
+     * method to draw the design of the strings
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawText(Graphics2D g2d){
 
         g2d.setColor(TEXT_COLOR);
@@ -180,6 +205,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * method to draw the design of the button, design of buttons
+     * will be changed when mouse cursor is pressed or released in the area of the buttons.
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -248,6 +278,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * method to determine whether the cursor is in the button area when the mouse is being clicked
+     * @param mouseEvent mouse event
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -262,6 +296,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         }
     }
 
+    /**
+     * method to repaint the button if the cursor is in the button when the mouse is being clicked
+     * @param mouseEvent mouse event
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -275,6 +313,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         }
     }
 
+    /**
+     * method to repaint the button if the mouse is being released.
+     * @param mouseEvent mouse event
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
         if(startClicked ){
@@ -303,6 +345,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * change the cursor look when it is in the button and also when it is outside of the button.
+     * @param mouseEvent mouse event
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();

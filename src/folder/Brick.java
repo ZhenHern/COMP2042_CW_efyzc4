@@ -1,4 +1,4 @@
-package test;
+package folder;
 
 import java.awt.*;
 import java.awt.Point;
