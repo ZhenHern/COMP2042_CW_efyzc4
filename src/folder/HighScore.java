@@ -6,12 +6,20 @@ import java.util.Scanner;
 import static java.lang.Character.isDigit;
 
 
+/**
+ * class for HighScore
+ */
 public class HighScore {
 
     private static int score1 = 0;
     private String filename;
 
-    HighScore(String filename) {
+    /**
+     * class constructor for HighScore which is used to create a file to store the high score
+     * @param filename name of the file to be created
+     * @exception IOException if stream to file cannot be written to or closed
+     */
+    public HighScore(String filename) {
         this.filename=filename;
         try {
             File myObj = new File("C:\\Users\\User\\Desktop\\hi\\"+filename);
@@ -26,6 +34,11 @@ public class HighScore {
 
     }
 
+    /**
+     * method to determine whether the player has achieved the best record
+     * @param time time taken to complete the stage
+     * @return return true if it is a new record
+     */
     boolean newHighScore(int time) {
         if(time<score1 || score1==0) {
             return true;
@@ -36,7 +49,12 @@ public class HighScore {
     }
 
 
-
+    /**
+     * method to write the player name and time taken when high score is achieved
+     * @param name name of the player
+     * @param time time taken to complete the stage
+     * @exception IOException if stream to file cannot be written to or closed
+     */
     void writeHighScore(String name,int time){
         try{
             FileWriter myWriter = new FileWriter(filename);
@@ -51,6 +69,12 @@ public class HighScore {
         }
     }
 
+    /**
+     * method to read the high score file and return the string,
+     * the best time record is stored
+     * @return return the string from the file
+     * @exception FileNotFoundException if file does not exist
+     */
     String readHighScore(){
         try{
             File myObj = new File(filename);

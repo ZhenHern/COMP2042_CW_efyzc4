@@ -6,6 +6,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * class for StageMenu
+ */
 public class StageMenu extends JComponent implements MouseListener, MouseMotionListener {
     private static final int DEF_WIDTH = 600;
     private static final int DEF_HEIGHT = 450;
@@ -27,12 +30,19 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     private boolean button4Clicked;
     private GameFrame owner;
 
+    /**
+     * class constructor for StageMenu
+     * @param owner GameFrame object
+     */
     public StageMenu(GameFrame owner){
         super();
         this.owner = owner;
         this.initialize();
     }
 
+    /**
+     * method to initialize the StageMenu window with specific settings.
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -41,6 +51,11 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         this.addMouseMotionListener(this);
     }
 
+    /**
+     * method that is called automatically in the background and when components
+     * need to be painted
+     * @param g object of Graphics
+     */
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
@@ -51,7 +66,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     }
 
 
-
+    /**
+     * method to change the color of background to cyan
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(Color.cyan);
@@ -59,6 +77,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         g2d.setColor(tmp);
     }
 
+    /**
+     * method to draw the strings according to the font and color
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawText(Graphics2D g2d) {
         titleFont = new Font("Monospaced",Font.BOLD,30);
         descFont = new Font("Monospaced",Font.BOLD,20);
@@ -68,6 +90,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         g2d.setFont(descFont);
     }
 
+    /**
+     * method to draw the buttons
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawButton(Graphics2D g2d){
         backButton = new Rectangle(0,0,150,30);
         button1 = new Rectangle(30,140,110,110);
@@ -149,15 +175,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     }
 
 
-
-
-
-
-
-
-
-
-
+    /**
+     * method to determine whether the cursor is in the button area when the mouse is being clicked
+     * @param e mouse event
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
@@ -179,6 +200,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
 
     }
 
+    /**
+     * method to repaint the button if the cursor is in the button when the mouse is being pressed
+     * @param e
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         Point p = e.getPoint();
@@ -204,6 +229,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         }
     }
 
+    /**
+     * method to repaint the button if the mouse is being released.
+     * @param e mouse event
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         if(backClicked==true){

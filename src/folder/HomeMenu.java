@@ -297,7 +297,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
     /**
-     * method to repaint the button if the cursor is in the button when the mouse is being clicked
+     * method to repaint the button if the cursor is in the button when the mouse is being pressed
      * @param mouseEvent mouse event
      */
     @Override
@@ -346,7 +346,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
     /**
-     * change the cursor look when it is in the button and also when it is outside of the button.
+     * change the cursor look when it is in the button and also when it is outside of the button
      * @param mouseEvent mouse event
      */
     @Override

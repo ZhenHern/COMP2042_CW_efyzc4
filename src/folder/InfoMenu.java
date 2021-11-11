@@ -34,6 +34,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
     private GameFrame owner;
 
 
+    /**
+     * class constructor for InfoMenu class
+     * @param owner GameFrame object
+     */
     public InfoMenu (GameFrame owner){
         super();
         this.owner=owner;
@@ -62,10 +66,9 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
 
-
-
-
-
+    /**
+     * method to initialize the InfoMenu window with specific settings.
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -74,6 +77,11 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         this.addMouseMotionListener(this);
     }
 
+    /**
+     * method that is called automatically in the background and when components
+     * need to be painted
+     * @param g object of Graphics
+     */
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
@@ -83,6 +91,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         drawButton(g2d);
     }
 
+    /**
+     * method to change the color of background to cyan
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(Color.cyan);
@@ -90,6 +102,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(tmp);
     }
 
+    /**
+     * method to draw the strings according to the font and color
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawText(Graphics2D g2d){
         g2d.setFont(titleFont);
         g2d.setColor(Color.BLUE);
@@ -99,6 +115,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.drawString(LEFT_TEXT,15,340);
     }
 
+    /**
+     * method to draw the player rectangle.
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawPlayer(Graphics2D g2d){
         Rectangle player1 = makeRectangle(rightStart,180,150,10);
         Rectangle player2 = makeRectangle(leftStart,335,150,10);
@@ -110,6 +130,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.draw(player2);
     }
 
+    /**
+     * method to draw the buttons
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawButton(Graphics2D g2d){
         backButton = new Rectangle(0,0,150,30);
         if(backClicked){
@@ -129,22 +153,44 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * method to create a rectangle object with specific dimension and location
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of the rectangle
+     * @param height height of the rectangle
+     * @return rectangle object that is created
+     */
     private Rectangle makeRectangle(int x,int y,int width,int height){
         Point p = new Point((int)(x),y);
         return  new Rectangle(p,new Dimension(width,height));
     }
 
+    /**
+     *method to start the timer
+     */
     private void start(){
         infoTimer.start();
     }
 
+    /**
+     * method to move the player to right by 1 unit
+     */
     private void moveRight(){
         rightStart+=1;
     }
 
+    /**
+     * method to move the player to left by 1 unit
+     */
     private void moveLeft(){
         leftStart-=1;
     }
+
+    /**
+     * method to determine whether the cursor is in the button area when the mouse is being clicked
+     * @param e mouse event
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
@@ -153,6 +199,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         }
     }
 
+    /**
+     * method to repaint the button if the cursor is in the button when the mouse is being pressed
+     * @param e moust event
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         Point p = e.getPoint();
@@ -162,6 +212,10 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
         }
     }
 
+    /**
+     * method to repaint the button if the mouse is being released.
+     * @param e mouse event
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         if(backClicked==true){

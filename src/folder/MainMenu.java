@@ -8,6 +8,9 @@ import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 
 
+/**
+ * MainMenu class
+ */
 public class MainMenu extends JComponent implements MouseListener, MouseMotionListener {
 
     private static final String PLAY_TEXT = "PLAY GAME";
@@ -113,6 +116,9 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * method to initialize the InfoMenu window with specific settings.
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -121,10 +127,18 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         this.addMouseMotionListener(this);
     }
 
+    /**
+     * method to start the gameTimer
+     */
     private void start(){
         gameTimer.start();
     }
 
+    /**
+     * method that is called automatically in the background and when components
+     * need to be painted
+     * @param g object of Graphics
+     */
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
@@ -147,6 +161,12 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         Toolkit.getDefaultToolkit().sync();
     }
 
+
+    /**
+     * method to draw the bricks
+     * @param brick bricks that form the wall
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawBrick(Brick brick,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -160,6 +180,11 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(tmp);
     }
 
+
+    /**
+     * method to change the color of background to white
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(BG_COLOR);
@@ -167,6 +192,12 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(tmp);
     }
 
+
+    /**
+     * method to draw the ball
+     * @param ball ball which is used to break the bricks
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawBall(Ball ball,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -181,6 +212,12 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(tmp);
     }
 
+
+    /**
+     * method to draw the player rectangle.
+     * @param p player object
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawPlayer(Player p,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -194,6 +231,10 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(tmp);
     }
 
+    /**
+     * method to draw the buttons
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -260,6 +301,10 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
 
+    /**
+     * method to determine whether the cursor is in the button area when the mouse is being clicked
+     * @param mouseEvent mouse event
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -280,6 +325,10 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
         }
     }
 
+    /**
+     * method to repaint the button if the cursor is in the button when the mouse is being pressed
+     * @param mouseEvent mouse event
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -298,6 +347,10 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /**
+     * method to repaint the button if the mouse is being released.
+     * @param e mouse event
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         if(playClicked){

@@ -13,13 +13,13 @@ public class CementBrick extends Brick {
     private static final Color DEF_BORDER = new Color(217, 199, 175);
     private static final int CEMENT_STRENGTH = 2;
 
-    private Brick.Crack crack;
+    private Crack crack;
     private Shape brickFace;
 
 
     public CementBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
-        crack = new Brick.Crack(Brick.DEF_CRACK_DEPTH, Brick.DEF_STEPS);
+        crack = new Crack(super.brickFace,Brick.DEF_CRACK_DEPTH, Brick.DEF_STEPS);
         brickFace = super.brickFace;
     }
 
@@ -34,7 +34,7 @@ public class CementBrick extends Brick {
             return false;
         super.impact();
         if(!super.isBroken()){
-            crack.makeCrack(point,dir);
+            crack.makeCrack(brickFace,point,dir);
             updateBrick();
             return false;
         }
