@@ -286,7 +286,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
         if(startButton.contains(p)){
-           owner.enableMainMenu();
+           owner.changeScreen(owner.getMainMenu());
 
 
         }

@@ -183,7 +183,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if(backButton.contains(p)){
-            owner.enableMainMenu();
+            owner.changeScreen(owner.getMainMenu());
         }
         if(button1.contains(p)){
             owner.enableGameBoard(1);

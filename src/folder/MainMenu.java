@@ -309,17 +309,17 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
         if(playButton.contains(p)){
-            owner.enableStageMenu();
+            owner.changeScreen(owner.getStageMenu());
             wall.ballReset();
             wall.wallReset();
         }
         else if(infoButton.contains(p)){
-            owner.enableInfoMenu();
+            owner.changeScreen(owner.getInfoMenu());
             wall.ballReset();
             wall.wallReset();
         }
         else if(leaderboardButton.contains(p)){
-            owner.enableLeaderboard();
+            owner.changeScreen(owner.getLeaderboard());
             wall.ballReset();
             wall.wallReset();
         }

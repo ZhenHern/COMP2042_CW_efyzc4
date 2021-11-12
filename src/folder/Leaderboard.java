@@ -240,7 +240,7 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if(backButton.contains(p)){
-            owner.enableMainMenu();
+            owner.changeScreen(owner.getMainMenu());
         }
     }
 

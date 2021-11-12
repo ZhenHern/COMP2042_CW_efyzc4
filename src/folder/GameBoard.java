@@ -63,18 +63,16 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private HighScore highscore;
 
 
+
     /**
      * class constructor of GameBoard class with two parameters.
      * Timer is started in this class constructor where player can
      * start playing the game.
      * @param owner GameFrame object
-     * @param stage Stage level (1,2,3,4)
      */
     public GameBoard(GameFrame owner,int stage){
 
         super();
-
-
 
         this.owner=owner;
         strLen = 0;
@@ -93,19 +91,19 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         debugConsole = new DebugConsole(owner,wall,this);
         //initialize the first level
-        if(stage==1){
+        if(stage ==1){
             wall.nextLevel();
         }
-        else if(stage==2){
-            wall.nextLevel();
-            wall.nextLevel();
-        }
-        else if(stage==3){
-            wall.nextLevel();
+        else if(stage ==2){
             wall.nextLevel();
             wall.nextLevel();
         }
-        else if(stage==4){
+        else if(stage ==3){
+            wall.nextLevel();
+            wall.nextLevel();
+            wall.nextLevel();
+        }
+        else if(stage ==4){
             wall.nextLevel();
             wall.nextLevel();
             wall.nextLevel();
@@ -447,7 +445,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             wall.wallReset();
             showPauseMenu = false;
             repaint();
-            owner.enableMainMenu();
+            owner.changeScreen(owner.getMainMenu());
         }
 
     }
@@ -503,5 +501,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         message = "Focus Lost";
         repaint();
     }
+
 
 }

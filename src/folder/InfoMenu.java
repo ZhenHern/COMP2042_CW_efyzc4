@@ -195,7 +195,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
     public void mouseClicked(MouseEvent e) {
         Point p = e.getPoint();
         if(backButton.contains(p)){
-            owner.enableMainMenu();
+            owner.changeScreen(owner.getMainMenu());
         }
     }
 

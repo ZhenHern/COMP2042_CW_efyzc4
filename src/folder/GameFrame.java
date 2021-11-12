@@ -25,17 +25,30 @@ import java.awt.event.WindowFocusListener;
 
 /**
  * GameFrame class
+ * Refactor : A JComponent named "component" is introduced to store the
+ * current JComponent when switching between screens. All the changing screen method
+ * can use the "component" variable to do action. For example,this.remove(component) is
+ * used instead of this.remove(HomeMenu). In order to change screen, the previous JComponent must
+ * be removed. With this variable, the component can be easily removed, without having to call
+ * this.remove() method multiple times as some of the screen can be accessed from different screen.
  */
 public class GameFrame extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";
 
+
+    /**
+     * Refactor: encapsulation has been improved on certain
+     * variable. Set and get methods are introduced for public
+     * access.
+     */
     private GameBoard gameBoard;
     private HomeMenu homeMenu;
     private MainMenu mainMenu;
     private InfoMenu infoMenu;
     private Leaderboard leaderboard;
     private StageMenu stageMenu;
+    private JComponent component;
 
     private boolean gaming;
 
@@ -49,19 +62,17 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         this.setLayout(new BorderLayout());
 
-        mainMenu = new MainMenu(this);
+        setMainMenu(new MainMenu(this));
 
-        infoMenu = new InfoMenu(this);
+        setInfoMenu(new InfoMenu(this));
 
-        leaderboard = new Leaderboard(this);
+        setLeaderboard(new Leaderboard(this));
 
-        stageMenu = new StageMenu(this);
+        setStageMenu(new StageMenu(this));
 
         homeMenu = new HomeMenu(this,new Dimension(450,300));
 
-        this.add(homeMenu,BorderLayout.CENTER);
-
-        this.setUndecorated(true);
+        enableHomeMenu();
 
 
     }
@@ -85,9 +96,10 @@ public class GameFrame extends JFrame implements WindowFocusListener {
      */
     public void enableGameBoard(int stage){
         this.dispose();
-        this.remove(stageMenu);
+        this.remove(component);
         gameBoard = new GameBoard(this,stage);
-        this.add(gameBoard,BorderLayout.CENTER);
+        this.component = gameBoard;
+        this.add(component,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         /*to avoid problems with graphics focus controller is added here*/
@@ -96,58 +108,32 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     }
 
     /**
-     * method to open the main menu
+     * method to start the home menu
      */
-    public void enableMainMenu(){
+    public void enableHomeMenu(){
+        this.component = homeMenu;
+        this.add(component,BorderLayout.CENTER);
+        this.setUndecorated(true);
+    }
+
+
+    /**
+     * method to change screen
+     * Refactor : all the enable method have been changed
+     * to this single method. (Ex : enableGameBoard() )
+     * @param component new component that is going to appear
+     */
+    public void changeScreen(JComponent component){
         this.dispose();
-        this.remove(homeMenu);
-        this.remove(infoMenu);
-        if(gameBoard!=null){
-            this.remove(gameBoard);
-        }
-        this.remove(leaderboard);
-        this.remove(stageMenu);
-        this.add(mainMenu,BorderLayout.CENTER);
+        this.remove(this.component);
+        this.component = component;
+        this.add(this.component,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         this.addWindowFocusListener(this);
     }
 
-    /**
-     * method to open the info menu
-     */
-    public void enableInfoMenu(){
-        this.dispose();
-        this.remove(mainMenu);
-        this.add(infoMenu,BorderLayout.CENTER);
-        this.setUndecorated(false);
-        initialize();
-        this.addWindowFocusListener(this);
-    }
 
-    /**
-     * method to open the leaderboard
-     */
-    public void enableLeaderboard(){
-        this.dispose();
-        this.remove(mainMenu);
-        this.add(leaderboard,BorderLayout.CENTER);
-        this.setUndecorated(false);
-        initialize();
-        this.addWindowFocusListener(this);
-    }
-
-    /**
-     * method to open the stage menu for stages selection
-     */
-    public void enableStageMenu(){
-        this.dispose();
-        this.remove(mainMenu);
-        this.add(stageMenu,BorderLayout.CENTER);
-        this.setUndecorated(false);
-        initialize();
-        this.addWindowFocusListener(this);
-    }
 
 
     /**
@@ -184,7 +170,40 @@ public class GameFrame extends JFrame implements WindowFocusListener {
      */
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {
-        if(gaming&&gameBoard!=null)
+        if(gaming&& gameBoard !=null)
             gameBoard.onLostFocus();
     }
+
+    public MainMenu getMainMenu() {
+        return mainMenu;
+    }
+
+    public void setMainMenu(MainMenu mainMenu) {
+        this.mainMenu = mainMenu;
+    }
+
+    public InfoMenu getInfoMenu() {
+        return infoMenu;
+    }
+
+    public void setInfoMenu(InfoMenu infoMenu) {
+        this.infoMenu = infoMenu;
+    }
+
+    public Leaderboard getLeaderboard() {
+        return leaderboard;
+    }
+
+    public void setLeaderboard(Leaderboard leaderboard) {
+        this.leaderboard = leaderboard;
+    }
+
+    public StageMenu getStageMenu() {
+        return stageMenu;
+    }
+
+    public void setStageMenu(StageMenu stageMenu) {
+        this.stageMenu = stageMenu;
+    }
+
 }
