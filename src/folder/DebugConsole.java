@@ -21,6 +21,9 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * class DebugConsole
+ */
 public class DebugConsole extends JDialog implements WindowListener{
 
     private static final String TITLE = "Debug Console";
@@ -32,6 +35,12 @@ public class DebugConsole extends JDialog implements WindowListener{
     private Wall wall;
 
 
+    /**
+     * class constructor for DebugConsole to create the debug console window
+     * @param owner object of Jframe
+     * @param wall wall object
+     * @param gameBoard GameBoard object
+     */
     public DebugConsole(JFrame owner,Wall wall,GameBoard gameBoard){
 
         this.wall = wall;
@@ -46,6 +55,9 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.pack();
     }
 
+    /**
+     * method to initialize the debug console window with specific settings
+     */
     private void initialize(){
         this.setModal(true);
         this.setTitle(TITLE);
@@ -56,6 +68,9 @@ public class DebugConsole extends JDialog implements WindowListener{
     }
 
 
+    /**
+     * method to set the location of the debug console
+     */
     private void setLocation(){
         int x = ((owner.getWidth() - this.getWidth()) / 2) + owner.getX();
         int y = ((owner.getHeight() - this.getHeight()) / 2) + owner.getY();
@@ -68,6 +83,10 @@ public class DebugConsole extends JDialog implements WindowListener{
 
     }
 
+    /**
+     * repaint the game board when the debug console is closed
+     * @param windowEvent window event
+     */
     @Override
     public void windowClosing(WindowEvent windowEvent) {
         gameBoard.repaint();
@@ -88,6 +107,10 @@ public class DebugConsole extends JDialog implements WindowListener{
 
     }
 
+    /**
+     * method to allow the ball to be connected when the debug console window is activated
+     * @param windowEvent window event
+     */
     @Override
     public void windowActivated(WindowEvent windowEvent) {
         setLocation();

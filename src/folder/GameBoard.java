@@ -171,7 +171,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
     /**
-     * method to initialize the GameBoard window with specific settings.
+     * method to initialize the GameBoard window with specific settings
      */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));

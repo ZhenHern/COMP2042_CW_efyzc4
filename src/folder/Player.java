@@ -20,6 +20,9 @@ package folder;
 import java.awt.*;
 
 
+/**
+ * class Player
+ */
 public class Player {
 
 
@@ -36,6 +39,13 @@ public class Player {
     private int changeDir=0;
 
 
+    /**
+     * class constructor for player
+     * @param ballPoint position of ball
+     * @param width width of the player
+     * @param height height of the player
+     * @param container player shape
+     */
     public Player(Point ballPoint,int width,int height,Rectangle container) {
         this.ballPoint = ballPoint;
         moveAmount = 0;
@@ -45,15 +55,31 @@ public class Player {
 
     }
 
+    /**
+     * method to create the player shape
+     * @param width width of the player
+     * @param height height of the player
+     * @return shape of the player
+     */
     private Rectangle makeRectangle(int width,int height){
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
         return  new Rectangle(p,new Dimension(width,height));
     }
 
+    /**
+     * method to determine if there is an impact between player and ball
+     * @param b ball object
+     * @return true if ball contacts with player
+     */
     public boolean impact(Ball b){
         return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
     }
 
+    /**
+     * method to move the player position
+     * player can only be moved horizontally, it cannot
+     * move beyond the border of window
+     */
     public void move(){
         double x = ballPoint.getX() + moveAmount;
         if(x < min || x > max)
@@ -63,15 +89,23 @@ public class Player {
     }
 
 
-
+    /**
+     * method to move the player left
+     */
     public void moveLeft(){
         moveAmount = -DEF_MOVE_AMOUNT;
     }
 
+    /**
+     * method to move the player right
+     */
     public void movRight(){
         moveAmount = DEF_MOVE_AMOUNT;
     }
 
+    /**
+     * method to move the player in the main menu
+     */
     public void moveStart() {
         if (changeDir==0){
             moveAmount =-2;
@@ -90,15 +124,25 @@ public class Player {
     }
 
 
-
+    /**
+     * method to stop the movement of player
+     */
     public void stop(){
         moveAmount = 0;
     }
 
+    /**
+     * method to get the player shape
+     * @return player shape
+     */
     public Shape getPlayerFace(){
         return  playerFace;
     }
 
+    /**
+     * method to move the player to certain position
+     * @param p player coordinate
+     */
     public void moveTo(Point p){
         ballPoint.setLocation(p);
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
