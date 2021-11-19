@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 /**
  * class for StageMenu
  */
-public class StageMenu extends JComponent implements MouseListener, MouseMotionListener {
+public class StageMenu extends JComponent implements MouseListener, MouseMotionListener,Menu {
     private static final int DEF_WIDTH = 600;
     private static final int DEF_HEIGHT = 450;
     private static final String TITLE = "SELECT A STAGE";
@@ -43,7 +43,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     /**
      * method to initialize the StageMenu window with specific settings.
      */
-    private void initialize(){
+    public void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -70,7 +70,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
      * method to change the color of background to cyan
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void clear(Graphics2D g2d){
+    public void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(Color.cyan);
         g2d.fillRect(0,0,getWidth(),getHeight());
@@ -81,7 +81,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
      * method to draw the strings according to the font and color
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawText(Graphics2D g2d) {
+    public void drawText(Graphics2D g2d) {
         titleFont = new Font("Monospaced",Font.BOLD,30);
         descFont = new Font("Monospaced",Font.BOLD,20);
         g2d.setFont(titleFont);
@@ -94,7 +94,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
      * method to draw the buttons
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawButton(Graphics2D g2d){
+    public void drawButton(Graphics2D g2d){
         backButton = new Rectangle(0,0,150,30);
         button1 = new Rectangle(30,140,110,110);
         button2 = new Rectangle(173,140,110,110);
@@ -172,6 +172,21 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
             g2d.draw(button4);
             g2d.drawString("4",492,215);
         }
+    }
+
+    @Override
+    public void drawBrick(Brick brick, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawBall(Ball ball, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawPlayer(Player p, Graphics2D g2d) {
+
     }
 
 

@@ -26,7 +26,7 @@ import java.awt.font.FontRenderContext;
 /**
  * class for GameBoard
  */
-public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
+public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener,Menu {
 
     private static final String CONTINUE = "Continue";
     private static final String RESTART = "Restart";
@@ -171,7 +171,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     /**
      * method to initialize the GameBoard window with specific settings
      */
-    private void initialize(){
+    public void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -212,11 +212,21 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      * method to change the color of background to white
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void clear(Graphics2D g2d){
+    public void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(BG_COLOR);
         g2d.fillRect(0,0,getWidth(),getHeight());
         g2d.setColor(tmp);
+    }
+
+    @Override
+    public void drawText(Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawButton(Graphics2D d2s) {
+
     }
 
     /**
@@ -224,7 +234,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      * @param brick bricks that form the wall
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawBrick(Brick brick,Graphics2D g2d){
+    public void drawBrick(Brick brick, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         g2d.setColor(brick.getInnerColor());
@@ -242,7 +252,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      * @param ball ball which is used to break the bricks
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawBall(Ball ball,Graphics2D g2d){
+    public void drawBall(Ball ball, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = ball.getBallFace();
@@ -261,7 +271,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      * @param p player object which can move left and right
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawPlayer(Player p,Graphics2D g2d){
+    public void drawPlayer(Player p, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = p.getPlayerFace();

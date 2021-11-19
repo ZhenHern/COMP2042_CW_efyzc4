@@ -22,7 +22,7 @@ public class HighScore {
     public HighScore(String filename) {
         this.filename=filename;
         try {
-            File myObj = new File("C:\\Users\\User\\Desktop\\hi\\"+filename);
+            File myObj = new File("C:\\Users\\User\\Desktop\\Software-Maintenance-CW\\"+filename);
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
                 System.out.println("Absolute path: " + myObj.getAbsolutePath());

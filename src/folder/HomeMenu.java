@@ -29,7 +29,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * HomeMenu class
  */
-public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
+public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener,Menu {
 
     private static final String GREETINGS = "Welcome to:";
     private static final String GAME_TITLE = "Brick Destroy";
@@ -168,11 +168,21 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prev);
     }
 
+    @Override
+    public void initialize() {
+
+    }
+
+    @Override
+    public void clear(Graphics2D g2d) {
+
+    }
+
     /**
      * method to draw the design of the strings
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawText(Graphics2D g2d){
+    public void drawText(Graphics2D g2d){
 
         g2d.setColor(TEXT_COLOR);
 
@@ -210,7 +220,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
      * will be changed when mouse cursor is pressed or released in the area of the buttons.
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawButton(Graphics2D g2d){
+    public void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
 
@@ -275,6 +285,21 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.draw(menuButton);
             g2d.drawString(MENU_TEXT,x,y);
         }
+
+    }
+
+    @Override
+    public void drawBrick(Brick brick, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawBall(Ball ball, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawPlayer(Player p, Graphics2D g2d) {
 
     }
 

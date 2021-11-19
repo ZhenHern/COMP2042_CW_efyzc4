@@ -11,7 +11,7 @@ import java.awt.font.FontRenderContext;
 /**
  * MainMenu class
  */
-public class MainMenu extends JComponent implements MouseListener, MouseMotionListener {
+public class MainMenu extends JComponent implements MouseListener, MouseMotionListener, Menu {
 
     private static final String PLAY_TEXT = "PLAY GAME";
     private static final String INFO_TEXT = "HOW TO PLAY";
@@ -119,7 +119,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
     /**
      * method to initialize the InfoMenu window with specific settings.
      */
-    private void initialize(){
+    public void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -167,7 +167,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param brick bricks that form the wall
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawBrick(Brick brick,Graphics2D g2d){
+    public void drawBrick(Brick brick,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         g2d.setColor(brick.getInnerColor());
@@ -185,11 +185,15 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * method to change the color of background to white
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void clear(Graphics2D g2d){
+    public void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(BG_COLOR);
         g2d.fillRect(0,0,getWidth(),getHeight());
         g2d.setColor(tmp);
+    }
+
+    @Override
+    public void drawText(Graphics2D g2d) {
     }
 
 
@@ -198,7 +202,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param ball ball which is used to break the bricks
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawBall(Ball ball,Graphics2D g2d){
+    public void drawBall(Ball ball,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = ball.getBallFace();
@@ -218,7 +222,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param p player object
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawPlayer(Player p,Graphics2D g2d){
+    public void drawPlayer(Player p,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = p.getPlayerFace();
@@ -235,7 +239,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * method to draw the buttons
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawButton(Graphics2D g2d){
+    public void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
 

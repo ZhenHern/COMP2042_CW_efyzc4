@@ -12,7 +12,7 @@ import static java.lang.Character.isDigit;
 /**
  * class for Leaderboard
  */
-public class Leaderboard extends JComponent implements MouseListener, MouseMotionListener {
+public class Leaderboard extends JComponent implements MouseListener, MouseMotionListener,Menu{
 
     private static String LEADERBOARD = "LEADERBOARD";
     private static String STAGE = "STAGE";
@@ -53,7 +53,7 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
     /**
      * method to initialize the InfoMenu window with specific settings.
      */
-    private void initialize(){
+    public void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -78,7 +78,7 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
      * method to change the color of background to cyan
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void clear(Graphics2D g2d){
+    public void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(Color.cyan);
         g2d.fillRect(0,0,getWidth(),getHeight());
@@ -89,7 +89,7 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
      * method to draw the strings (High Score and Name) according to the font and color
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawText(Graphics2D g2d){
+    public void drawText(Graphics2D g2d){
 
         g2d.drawRect(60,75,480,350);
         g2d.drawLine(60,165,540,165);
@@ -167,7 +167,7 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
      * method to draw the buttons
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawButton(Graphics2D g2d){
+    public void drawButton(Graphics2D g2d){
         backButton = new Rectangle(0,0,150,30);
         if(backClicked){
             g2d.setColor(Color.blue);
@@ -183,6 +183,21 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
             g2d.draw(backButton);
             g2d.drawString(BACK_TEXT,50,20);
         }
+    }
+
+    @Override
+    public void drawBrick(Brick brick, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawBall(Ball ball, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawPlayer(Player p, Graphics2D g2d) {
+
     }
 
 

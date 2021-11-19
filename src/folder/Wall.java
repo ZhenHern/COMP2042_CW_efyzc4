@@ -75,7 +75,7 @@ public class Wall {
             speedX = 4;
         }while(speedX == 0);
         do{
-            speedY = -4;
+            speedY = -8;
         }while(speedY == 0);
 
         ball.setSpeed(speedX,speedY);

@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 
-public class InfoMenu extends JComponent implements MouseListener, MouseMotionListener{
+public class InfoMenu extends JComponent implements MouseListener, MouseMotionListener,Menu{
 
     private static final String INSTRUCTIONS_TEXT = "INSTRUCTIONS";
     private static final String RIGHT_TEXT = "MOVE RIGHT : 'D'";
@@ -69,7 +69,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
     /**
      * method to initialize the InfoMenu window with specific settings.
      */
-    private void initialize(){
+    public void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -95,7 +95,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
      * method to change the color of background to cyan
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void clear(Graphics2D g2d){
+    public void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(Color.cyan);
         g2d.fillRect(0,0,getWidth(),getHeight());
@@ -106,7 +106,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
      * method to draw the strings according to the font and color
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawText(Graphics2D g2d){
+    public void drawText(Graphics2D g2d){
         g2d.setFont(titleFont);
         g2d.setColor(Color.BLUE);
         g2d.drawString(INSTRUCTIONS_TEXT,185,50);
@@ -119,7 +119,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
      * method to draw the player rectangle.
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawPlayer(Graphics2D g2d){
+    public void drawPlayer(Graphics2D g2d){
         Rectangle player1 = makeRectangle(rightStart,180,150,10);
         Rectangle player2 = makeRectangle(leftStart,335,150,10);
         g2d.setColor(INNER_COLOR);
@@ -134,7 +134,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
      * method to draw the buttons
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    private void drawButton(Graphics2D g2d){
+    public void drawButton(Graphics2D g2d){
         backButton = new Rectangle(0,0,150,30);
         if(backClicked){
             g2d.setColor(Color.blue);
@@ -150,6 +150,21 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.draw(backButton);
             g2d.drawString(BACK_TEXT,50,20);
         }
+
+    }
+
+    @Override
+    public void drawBrick(Brick brick, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawBall(Ball ball, Graphics2D g2d) {
+
+    }
+
+    @Override
+    public void drawPlayer(Player p, Graphics2D g2d) {
 
     }
 
