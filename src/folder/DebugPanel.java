@@ -16,6 +16,8 @@ package folder;/*
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import folder.Bricks.Wall;
+
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
 import java.awt.*;

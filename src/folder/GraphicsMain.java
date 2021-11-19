@@ -17,6 +17,8 @@
  */
 package folder;
 
+import folder.Menu.GameFrame;
+
 import java.awt.*;
 
 

@@ -16,10 +16,17 @@ package folder;/*
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
+
+import folder.Ball.Ball;
+import folder.Bricks.Wall;
+import folder.Menu.GameBoard;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+
 
 /**
  * class DebugConsole
@@ -41,7 +48,7 @@ public class DebugConsole extends JDialog implements WindowListener{
      * @param wall wall object
      * @param gameBoard GameBoard object
      */
-    public DebugConsole(JFrame owner,Wall wall,GameBoard gameBoard){
+    public DebugConsole(JFrame owner, Wall wall, GameBoard gameBoard){
 
         this.wall = wall;
         this.owner = owner;
@@ -114,7 +121,7 @@ public class DebugConsole extends JDialog implements WindowListener{
     @Override
     public void windowActivated(WindowEvent windowEvent) {
         setLocation();
-        Ball b = wall.ball;
+        Ball b = wall.getBall();
         debugPanel.setValues(b.getSpeedX(),b.getSpeedY());
     }
 

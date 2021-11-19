@@ -17,6 +17,8 @@
  */
 package folder;
 
+import folder.Ball.Ball;
+
 import java.awt.*;
 
 
@@ -72,7 +74,7 @@ public class Player {
      * @return true if ball contacts with player
      */
     public boolean impact(Ball b){
-        return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
+        return playerFace.contains(b.getPosition()) && playerFace.contains(b.getDown()) ;
     }
 
     /**
