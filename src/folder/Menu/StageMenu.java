@@ -26,12 +26,14 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     private Rectangle button2;
     private Rectangle button3;
     private Rectangle button4;
+    private Rectangle specialButton;
 
     private boolean backClicked;
     private boolean button1Clicked;
     private boolean button2Clicked;
     private boolean button3Clicked;
     private boolean button4Clicked;
+    private boolean specialClicked;
     private GameFrame owner;
 
     /**
@@ -104,6 +106,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         button2 = new Rectangle(173,140,110,110);
         button3 = new Rectangle(316,140,110,110);
         button4 = new Rectangle(460,140,110,110);
+        specialButton = new Rectangle(30,300,540,110);
         if(backClicked){
             g2d.setColor(Color.blue);
             g2d.fill(backButton);
@@ -176,6 +179,20 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
             g2d.draw(button4);
             g2d.drawString("4",492,215);
         }
+        if(specialClicked){
+            g2d.setColor(Color.blue);
+            g2d.fill(specialButton);
+            g2d.setColor(Color.white);
+            g2d.draw(specialButton);
+            g2d.drawString("EXTRA",173,375);
+        }
+        else{
+            g2d.setColor(Color.WHITE);
+            g2d.fill(specialButton);
+            g2d.setColor(Color.black);
+            g2d.draw(specialButton);
+            g2d.drawString("EXTRA",173,375);
+        }
     }
 
     @Override
@@ -216,6 +233,9 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         if(button4.contains(p)){
             owner.enableGameBoard(4);
         }
+        if(specialButton.contains(p)){
+            owner.enableGameBoard(5);
+        }
 
     }
 
@@ -246,6 +266,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
             button4Clicked=true;
             repaint(button4);
         }
+        if(specialButton.contains(p)){
+            specialClicked=true;
+            repaint(specialButton);
+        }
     }
 
     /**
@@ -273,6 +297,10 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
         if(button4Clicked==true){
             button4Clicked=false;
             repaint(button4);
+        }
+        if(specialClicked==true){
+            specialClicked=false;
+            repaint(specialButton);
         }
     }
 

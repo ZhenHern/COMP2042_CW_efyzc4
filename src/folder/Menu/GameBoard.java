@@ -20,7 +20,9 @@ package folder.Menu;
 import folder.*;
 import folder.Ball.Ball;
 import folder.Bricks.Brick;
+import folder.Bricks.Portal;
 import folder.Bricks.Wall;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,8 +51,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     private Timer gameTimer;
     private int recordedTime=0;
+    private int time1=0;
+    private int time2=0;
+    private int stage=0;
     private String highScore;
     private Wall wall;
+    private Portal portal;
 
     private String message;
 
@@ -79,6 +85,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         super();
 
+        this.stage=stage;
         this.owner=owner;
         strLen = 0;
         showPauseMenu = false;
@@ -92,8 +99,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         this.initialize();
         message = "";
-        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
 
+        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
+        portal = new Portal();
         debugConsole = new DebugConsole(owner,wall,this);
         //initialize the first level
         if(stage ==1){
@@ -113,13 +121,41 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             wall.nextLevel();
             wall.nextLevel();
             wall.nextLevel();
+            wall.nextLevel();
+        }
+        else if(stage==5){
+            wall.nextLevel();
+            wall.nextLevel();
+            wall.nextLevel();
+            wall.nextLevel();
+            wall.nextLevel();
         }
 
 
         gameTimer = new Timer(10,e ->{
+
             recordedTime+=1;
             wall.move();
             wall.findImpacts();
+            if(time1 == 0) {
+                if (portal.impactPortal1(wall.getBall())) {
+                    time1 = 8;
+                }
+            }
+            else{
+                time1-=1;
+            }
+
+            if(time2 == 0) {
+                if (portal.impactPortal2(wall.getBall())) {
+                    time2 = 8;
+                }
+            }
+            else{
+                time2-=1;
+            }
+
+
             message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
@@ -142,16 +178,19 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                     HighScore highscore = new HighScore("HighScore3.txt");
                     this.highscore = highscore;
                 }
-                else {
+                else if(wall.CURRENT_LEVEL==5){
                     HighScore highscore = new HighScore("HighScore4.txt");
                     this.highscore = highscore;
                 }
-                highscore.readHighScore();
-                if(highscore.newHighScore(recordedTime)){
-                    highScore=Integer.toString(recordedTime);
-                    nameInput();
-                    highscore.writeHighScore(name,recordedTime);
+                if(stage!=5) {
+                    highscore.readHighScore();
+                    if (highscore.newHighScore(recordedTime)) {
+                        highScore = Integer.toString(recordedTime);
+                        nameInput();
+                        highscore.writeHighScore(name, recordedTime);
+                    }
                 }
+
                 if(wall.hasLevel()){
                     message = "Go to Next Level";
                     gameTimer.stop();
@@ -194,16 +233,26 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         Graphics2D g2d = (Graphics2D) g;
 
+
         clear(g2d);
 
         g2d.setColor(Color.RED);
         g2d.drawString(message,250,225);
+
+        if (stage==5){
+            drawPortal1(g2d,portal.getPortal1());
+            drawPortal1(g2d,portal.getPortal2());
+            drawPortal2(g2d,portal.getPortal3());
+            drawPortal2(g2d,portal.getPortal4());
+        }
+
 
         drawBall(wall.getBall(),g2d);
 
         for(Brick b : wall.getBricks())
             if(!b.isBroken())
                 drawBrick(b,g2d);
+
 
         drawPlayer(wall.getPlayer(),g2d);
 
@@ -269,6 +318,15 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.draw(s);
 
         g2d.setColor(tmp);
+    }
+
+    private void drawPortal1(Graphics2D g2d,Shape portal){
+        g2d.draw(portal);
+    }
+
+    private void drawPortal2(Graphics2D g2d,Shape portal){
+        g2d.setColor(Color.blue);
+        g2d.draw(portal);
     }
 
     /**
