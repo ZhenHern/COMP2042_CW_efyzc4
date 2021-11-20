@@ -137,23 +137,26 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             recordedTime+=1;
             wall.move();
             wall.findImpacts();
-            if(time1 == 0) {
-                if (portal.impactPortal1(wall.getBall())) {
-                    time1 = 8;
+            if (stage==5){
+                if(time1 == 0) {
+                    if (portal.impactPortal1(wall.getBall())) {
+                        time1 = 8;
+                    }
                 }
-            }
-            else{
-                time1-=1;
+                else{
+                    time1-=1;
+                }
+
+                if(time2 == 0) {
+                    if (portal.impactPortal2(wall.getBall())) {
+                        time2 = 8;
+                    }
+                }
+                else{
+                    time2-=1;
+                }
             }
 
-            if(time2 == 0) {
-                if (portal.impactPortal2(wall.getBall())) {
-                    time2 = 8;
-                }
-            }
-            else{
-                time2-=1;
-            }
 
 
             message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
@@ -462,7 +465,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 wall.getPlayer().moveLeft();
                 break;
             case KeyEvent.VK_D:
-                wall.getPlayer().movRight();
+                wall.getPlayer().moveRight();
                 break;
             case KeyEvent.VK_ESCAPE:
                 showPauseMenu = !showPauseMenu;
@@ -471,8 +474,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 break;
             case KeyEvent.VK_SPACE:
                 if(!showPauseMenu)
-                    if(gameTimer.isRunning())
+                    if(gameTimer.isRunning()) {
                         gameTimer.stop();
+                        System.out.println(wall.getBall().getPosition());
+                    }
                     else
                         gameTimer.start();
                 break;

@@ -101,7 +101,7 @@ public class Player {
     /**
      * method to move the player right
      */
-    public void movRight(){
+    public void moveRight(){
         moveAmount = DEF_MOVE_AMOUNT;
     }
 
@@ -137,7 +137,7 @@ public class Player {
      * method to get the player shape
      * @return player shape
      */
-    public Shape getPlayerFace(){
+    public Rectangle getPlayerFace(){
         return  playerFace;
     }
 
