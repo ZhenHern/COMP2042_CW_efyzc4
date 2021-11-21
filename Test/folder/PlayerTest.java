@@ -7,6 +7,9 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * JUnit test for Player class
+ */
 class PlayerTest {
 
     Player player = new Player(new Point(0,0),30,10,new Rectangle(200,10));
@@ -14,6 +17,11 @@ class PlayerTest {
     Point p2 =new Point(0,0);
     RubberBall b1 = new RubberBall(p1);
     RubberBall b2 = new RubberBall(p2);
+
+    /**
+     * test whether the method impact() return the correct value when it
+     * has an impact with ball or not
+     */
     @Test
     void impact() {
         assertFalse(player.impact(b1));
@@ -21,6 +29,10 @@ class PlayerTest {
     }
 
 
+    /**
+     * test whether the player can be moved to a certain point after calling the
+     * method moveTo()
+     */
     @Test
     void moveTo() {
         player.moveTo(new Point(20,0));

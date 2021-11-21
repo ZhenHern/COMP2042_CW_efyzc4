@@ -19,7 +19,6 @@ package folder.Bricks;
 
 import folder.Ball.Ball;
 import folder.Ball.RubberBall;
-import folder.Bricks.*;
 import folder.Player;
 
 import java.awt.*;
@@ -70,7 +69,7 @@ public class Wall {
         level = 0;
 
         ballCount = 10;
-        ballLost = false;
+        setBallLost(false);
 
         rnd = new Random();
 
@@ -101,7 +100,7 @@ public class Wall {
      * @param type brick type
      * @return return an array of brick objects
      */
-    private Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
+    public Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
           multiple of lineCount smaller then brickCount
@@ -243,6 +242,7 @@ public class Wall {
             * because for every brick program checks for horizontal and vertical impacts
             */
             brickCount--;
+
         }
         else if(impactBorder()) {
             getBall().reverseX();
@@ -252,7 +252,7 @@ public class Wall {
         }
         else if(getBall().getPosition().getY() > area.getY() + area.getHeight()){
             ballCount--;
-            ballLost = true;
+            setBallLost(true);
         }
     }
 
@@ -301,6 +301,10 @@ public class Wall {
         return brickCount;
     }
 
+    public void setBrickCount(int brickCount){
+        this.brickCount=brickCount;
+    }
+
     /**
      * method to get the number of balls left
      * @return number of balls left
@@ -332,7 +336,7 @@ public class Wall {
         }while(speedY == 0);
 
         getBall().setSpeed(speedX,speedY);
-        ballLost = false;
+        setBallLost(false);
     }
 
     /**
@@ -450,5 +454,9 @@ public class Wall {
 
     public void setBricks(Brick[] bricks) {
         this.bricks = bricks;
+    }
+
+    public void setBallLost(boolean ballLost) {
+        this.ballLost = ballLost;
     }
 }

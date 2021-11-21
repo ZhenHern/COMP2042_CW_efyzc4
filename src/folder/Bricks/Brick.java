@@ -117,14 +117,19 @@ abstract public class Brick  {
         if(broken)
             return 0;
         int out  = 0;
-        if(brickFace.contains(b.getRight()))
+        if(brickFace.contains(b.getRight())){
             out = LEFT_IMPACT;
-        else if(brickFace.contains(b.getLeft()))
+        }
+        else if(brickFace.contains(b.getLeft())){
             out = RIGHT_IMPACT;
-        else if(brickFace.contains(b.getUp()))
+        }
+        else if(brickFace.contains(b.getUp())){
             out = DOWN_IMPACT;
-        else if(brickFace.contains(b.getDown()))
+        }
+        else if(brickFace.contains(b.getDown())){
             out = UP_IMPACT;
+        }
+
         return out;
     }
 

@@ -74,7 +74,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
         this.initialize();
         message = "";
-        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
+        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(330,430));
 
         //initialize the first level
         wall.nextLevel();

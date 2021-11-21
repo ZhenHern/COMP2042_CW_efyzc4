@@ -325,6 +325,8 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     private void drawPortal1(Graphics2D g2d,Shape portal){
         g2d.draw(portal);
+        Toolkit t=Toolkit.getDefaultToolkit();
+        Image i=t.getImage("p3.gif");
     }
 
     private void drawPortal2(Graphics2D g2d,Shape portal){
@@ -476,7 +478,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 if(!showPauseMenu)
                     if(gameTimer.isRunning()) {
                         gameTimer.stop();
-                        System.out.println(wall.getBall().getPosition());
                     }
                     else
                         gameTimer.start();
