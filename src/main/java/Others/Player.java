@@ -27,13 +27,13 @@ import java.awt.*;
  */
 public class Player {
 
-
+    private static Player player = null;
     public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
     public static final Color INNER_COLOR = Color.GREEN;
-
     private static final int DEF_MOVE_AMOUNT = 5;
 
     private Rectangle playerFace;
+    private Rectangle container;
     private Point ballPoint;
     private int moveAmount;
     private int min;
@@ -43,18 +43,39 @@ public class Player {
 
     /**
      * class constructor for player
-     * @param ballPoint position of ball
-     * @param width width of the player
-     * @param height height of the player
-     * @param container player shape
+     * Refactor : Singleton design pattern is used here.
+     * Only one instance of player class is created. A get
+     * instance method is use to get the player object.
      */
-    public Player(Point ballPoint,int width,int height,Rectangle container) {
-        this.ballPoint = ballPoint;
+    private Player() {
+        container = new Rectangle(0,0,600,450);
+        ballPoint = new Point(300,430);
+        int width = 150;
+        int height = 10;
         moveAmount = 0;
         playerFace = makeRectangle(width, height);
         min = container.x + (width / 2);
         max = min + container.width - width;
 
+    }
+
+    /**
+     * Create a player object if there is none.
+     * Method to obtain the player object
+     * @return player object
+     */
+    public static Player getPlayer(){
+        if(player == null){
+            player = new Player();
+        }
+        return player;
+    }
+
+    /**
+     * remove the current player object
+     */
+    public static void resetPlayer(){
+        player = null;
     }
 
     /**

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PlayerTest {
 
-    Player player = new Player(new Point(0,0),30,10,new Rectangle(200,10));
+    Player player = Player.getPlayer();
     Point p1 = new Point(10,20);
     Point p2 =new Point(0,0);
     RubberBall b1 = new RubberBall(p1);

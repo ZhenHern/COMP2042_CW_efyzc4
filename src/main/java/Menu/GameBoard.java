@@ -86,6 +86,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         super();
         this.stage=stage;
         this.owner=owner;
+        Player.resetPlayer();
         strLen = 0;
         showPauseMenu = false;
 

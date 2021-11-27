@@ -4,6 +4,7 @@ import Menu.GameFrame;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -12,10 +13,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.util.Stack;
 
+/**
+ * Start class
+ */
 public class Start {
     private Stage stage;
     private Scene scene;
@@ -24,6 +29,13 @@ public class Start {
     private BorderPane borderPane;
     private GameFrame owner;
 
+    /**
+     * Constructor class to create the display for start menu.
+     * JavaFX is used to create the start menu window
+     * @param stage javafx stage
+     * @param owner frame for start menu
+     * @throws Exception
+     */
     public Start(Stage stage, GameFrame owner) throws Exception {
         this.owner = owner;
         this.stage = stage;
@@ -79,6 +91,8 @@ public class Start {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Brick Destroyer");
+        stage.setX(460);
+        stage.setY(190);
         stage.hide();
         stage.show();
 

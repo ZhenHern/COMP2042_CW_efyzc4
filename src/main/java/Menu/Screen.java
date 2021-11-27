@@ -9,23 +9,26 @@ import java.awt.*;
 
 /**
  * Refactor: Interface "folder.Menu" is created
- * for every menu class to implement.
+ * for every menu class to implement. Open-closed principle
+ * is used in this interface for design principle. "Screen" interface
+ * is open for other class to implement while it is also closed for
+ * modification
  */
 public interface Screen {
 
-    public void initialize();
+    void initialize();
 
-    public void clear(Graphics2D g2d);
+    void clear(Graphics2D g2d);
 
-    public void drawText(Graphics2D g2d);
+    void drawText(Graphics2D g2d);
 
-    public void drawButton(Graphics2D d2s);
+    void drawButton(Graphics2D d2s);
 
-    public void drawBrick(Brick brick, Graphics2D g2d);
+    void drawBrick(Brick brick, Graphics2D g2d);
 
-    public void drawBall(Ball ball, Graphics2D g2d);
+    void drawBall(Ball ball, Graphics2D g2d);
 
-    public void drawPlayer(Player p, Graphics2D g2d);
+    void drawPlayer(Player p, Graphics2D g2d);
 
 
 

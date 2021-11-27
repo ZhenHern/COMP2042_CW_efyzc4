@@ -21,10 +21,8 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
     private static final String PLAY_TEXT = "PLAY GAME";
     private static final String INFO_TEXT = "HOW TO PLAY";
     private static final String HIGH_SCORE = "LEADERBOARD";
-    private static final String EXIT = "Exit";
-    private static final String PAUSE = "Pause folder.Menu";
     private static final int TEXT_SIZE = 30;
-    private static final Color MENU_COLOR = new Color(0,255,0);
+
 
 
     private static final int DEF_WIDTH = 600;
@@ -51,8 +49,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
     private Rectangle playButton;
     private Rectangle infoButton;
     private Rectangle leaderboardButton;
-    private Rectangle exitButtonRect;
-    private Rectangle restartButtonRect;
+
 
 
     private Font buttonFont;
@@ -96,18 +93,10 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
                 gameTimer.start();
             }
             else if(wall.isDone()){
-                if(wall.hasLevel()){
-                    message = "Go to Next Level";
-                    gameTimer.stop();
-                    wall.ballReset();
-                    wall.wallReset();
-                    wall.nextLevel();
-                    gameTimer.start();
-                }
-                else{
-                    message = "ALL WALLS DESTROYED";
-                    gameTimer.stop();
-                }
+                wall.ballReset();
+                wall.wallReset();
+                gameTimer.stop();
+                gameTimer.start();
             }
 
 

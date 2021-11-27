@@ -84,7 +84,7 @@ public class Wall {
 
         getBall().setSpeed(speedX,speedY);
 
-        setPlayer(new Player((Point) ballPos.clone(),150,10, drawArea));
+        setPlayer(Player.getPlayer());
 
         area = drawArea;
 
@@ -408,6 +408,9 @@ public class Wall {
     }
 
     /**
+     * Refactor : makeBrick method is changed according to
+     * the factory method design pattern. Brick type to be
+     * instatiated is done in GetBrickFactory class's getBrick method
      * method to create brick of different types
      * @param point coordinate of brick
      * @param size dimension of brick
@@ -415,21 +418,8 @@ public class Wall {
      * @return brick object
      */
     private Brick makeBrick(Point point, Dimension size, int type){
-        Brick out;
-        switch(type){
-            case CLAY:
-                out = new ClayBrick(point,size);
-                break;
-            case STEEL:
-                out = new SteelBrick(point,size);
-                break;
-            case CEMENT:
-                out = new CementBrick(point, size);
-                break;
-            default:
-                throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
-        }
-        return  out;
+        GetBrickFactory factory = new GetBrickFactory();
+        return factory.getBrick(point,size,type);
     }
 
     public Ball getBall() {
