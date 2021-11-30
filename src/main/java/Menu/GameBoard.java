@@ -22,6 +22,7 @@ import Ball.Ball;
 import Bricks.Brick;
 import Bricks.Portal;
 import Bricks.Wall;
+import org.w3c.dom.css.Rect;
 
 
 import javax.swing.*;
@@ -54,6 +55,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private int time1=0;
     private int time2=0;
     private int stage=0;
+    private int colorChange = 1;
     private String highScore;
     private Wall wall;
     private Portal portal;
@@ -67,6 +69,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private Rectangle continueButtonRect;
     private Rectangle menuButtonRect;
     private Rectangle restartButtonRect;
+    private Polygon leftButton;
+    private Polygon rightButton;
+    private Color c = Color.GREEN;
     private int strLen;
 
     private DebugConsole debugConsole;
@@ -342,7 +347,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         Color tmp = g2d.getColor();
 
         Shape s = p.getPlayerFace();
-        g2d.setColor(Player.INNER_COLOR);
+        g2d.setColor(c);
         g2d.fill(s);
 
         g2d.setColor(Player.BORDER_COLOR);
@@ -384,9 +389,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
     private void drawPauseMenu(Graphics2D g2d){
-        Font tmpFont = g2d.getFont();
-        Color tmpColor = g2d.getColor();
-
 
         g2d.setFont(menuFont);
         g2d.setColor(MENU_COLOR);
@@ -431,11 +433,30 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         }
 
         g2d.drawString(MAIN_MENU,x,y);
+        Polygon leftButton = new Polygon();
+        leftButton.xpoints = new int[] {320, 340, 340};
+        leftButton.ypoints = new int[] {330, 310, 350};
+        leftButton.npoints = 3;
+        this.leftButton = leftButton;
+        g2d.drawPolygon(this.leftButton);
+        g2d.fill(this.leftButton);
+
+        Polygon rightButton = new Polygon();
+        rightButton.xpoints = new int[] {560, 540, 540};
+        rightButton.ypoints = new int[] {330, 310, 350};
+        rightButton.npoints = 3;
+        this.rightButton = rightButton;
+        g2d.drawPolygon(this.rightButton);
+        g2d.fill(this.rightButton);
+
+        Rectangle color = new Rectangle(365,323,150,10);
+        g2d.setColor(Color.black);
+        g2d.draw(color);
+        g2d.setColor(c);
+        g2d.fill(color);
 
 
 
-        g2d.setFont(tmpFont);
-        g2d.setColor(tmpColor);
     }
 
 
@@ -525,6 +546,45 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             repaint();
             owner.changeScreen(owner.getMainMenu());
         }
+        else if(leftButton.contains(p)){
+            if(colorChange == 1){
+                c = Color.CYAN;
+                colorChange = 4;
+            }
+            else if(colorChange == 2){
+                c = Color.GREEN;
+                colorChange = 1;
+            }
+            else if(colorChange == 3){
+                c = Color.ORANGE;
+                colorChange = 2;
+            }
+            else if(colorChange == 4){
+                c = Color.MAGENTA;
+                colorChange = 3;
+            }
+
+            repaint();
+        }
+        else if(rightButton.contains(p)){
+            if(colorChange == 1){
+                c = Color.ORANGE;
+                colorChange = 2;
+            }
+            else if(colorChange == 2){
+                c = Color.magenta;
+                colorChange = 3;
+            }
+            else if(colorChange == 3){
+                c = Color.CYAN;
+                colorChange = 4;
+            }
+            else if(colorChange == 4){
+                c = Color.GREEN;
+                colorChange = 1;
+            }
+            repaint();
+        }
 
     }
 
@@ -561,7 +621,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
         if(menuButtonRect != null && showPauseMenu) {
-            if (menuButtonRect.contains(p) || continueButtonRect.contains(p) || restartButtonRect.contains(p))
+            if (menuButtonRect.contains(p) || continueButtonRect.contains(p) || restartButtonRect.contains(p) || leftButton.contains(p) || rightButton.contains(p))
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             else
                 this.setCursor(Cursor.getDefaultCursor());
