@@ -2,10 +2,12 @@ package Menu;
 
 import Controller.BallController;
 import Controller.BrickController;
+import Controller.PlayerController;
 import Model.Player;
 import Model.Ball.Ball;
 import Model.Bricks.Brick;
 import Model.Bricks.Wall;
+import View.PlayerView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -220,14 +222,14 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param p player object
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawPlayer(Player p, Graphics2D g2d){
+    public void drawPlayer(PlayerController p, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = p.getPlayerFace();
-        g2d.setColor(Player.INNER_COLOR);
+        g2d.setColor(PlayerView.INNER_COLOR);
         g2d.fill(s);
 
-        g2d.setColor(Player.BORDER_COLOR);
+        g2d.setColor(PlayerView.BORDER_COLOR);
         g2d.draw(s);
 
         g2d.setColor(tmp);

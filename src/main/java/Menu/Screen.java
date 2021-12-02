@@ -2,6 +2,7 @@ package Menu;
 
 import Controller.BallController;
 import Controller.BrickController;
+import Controller.PlayerController;
 import Model.Ball.Ball;
 import Model.Bricks.Brick;
 import Model.Player;
@@ -30,7 +31,7 @@ public interface Screen {
 
     void drawBall(BallController ball, Graphics2D g2d);
 
-    void drawPlayer(Player p, Graphics2D g2d);
+    void drawPlayer(PlayerController p, Graphics2D g2d);
 
 
 

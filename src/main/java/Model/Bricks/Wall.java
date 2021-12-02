@@ -19,6 +19,7 @@ package Model.Bricks;
 
 import Controller.BallController;
 import Controller.BrickController;
+import Controller.PlayerController;
 import Model.Ball.RubberBall;
 import Model.Player;
 
@@ -42,7 +43,7 @@ public class Wall {
     private Rectangle drawArea;
     private BrickController[] bricks;
     private BallController ball;
-    private Player player;
+    private PlayerController player;
     private BrickController[][] levels;
     private int level;
     private int lineCount;
@@ -84,7 +85,7 @@ public class Wall {
 
         getBall().setSpeed(speedX,speedY);
 
-        setPlayer(Player.getPlayer());
+        setPlayer(PlayerController.getPlayer());
 
         this.drawArea = drawArea;
 
@@ -431,11 +432,11 @@ public class Wall {
         this.ball = ball;
     }
 
-    public Player getPlayer() {
+    public PlayerController getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(PlayerController player) {
         this.player = player;
     }
 
