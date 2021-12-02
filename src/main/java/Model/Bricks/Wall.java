@@ -18,7 +18,7 @@
 package Model.Bricks;
 
 import Controller.BallController;
-import Model.Ball.Ball;
+import Controller.BrickController;
 import Model.Ball.RubberBall;
 import Model.Player;
 
@@ -40,10 +40,10 @@ public class Wall {
 
     private Random rnd;
     private Rectangle drawArea;
-    private Brick[] bricks;
+    private BrickController[] bricks;
     private BallController ball;
     private Player player;
-    private Brick[][] levels;
+    private BrickController[][] levels;
     private int level;
     private int lineCount;
     private Point startPoint;
@@ -101,7 +101,7 @@ public class Wall {
      * @param type brick type
      * @return return an array of brick objects
      */
-    public Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, brickTypes type){
+    public BrickController[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, brickTypes type){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
           multiple of lineCount smaller then brickCount
@@ -115,7 +115,7 @@ public class Wall {
 
         brickCnt += lineCnt / 2;
 
-        Brick[] tmp  = new Brick[brickCnt];
+        BrickController[] tmp  = new BrickController[brickCnt];
 
         Dimension brickSize = new Dimension((int) brickLen,(int) brickHgt);
         Point p = new Point();
@@ -151,7 +151,7 @@ public class Wall {
      * @param typeB second brick type
      * @return return an array of brick objects
      */
-    private Brick[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, brickTypes typeA, brickTypes typeB){
+    private BrickController[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, brickTypes typeA, brickTypes typeB){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
           multiple of lineCount smaller then brickCount
@@ -168,7 +168,7 @@ public class Wall {
 
         brickCnt += lineCnt / 2;
 
-        Brick[] tmp  = new Brick[brickCnt];
+        BrickController[] tmp  = new BrickController[brickCnt];
 
         Dimension brickSize = new Dimension((int) brickLen,(int) brickHgt);
         Point p = new Point();
@@ -212,8 +212,8 @@ public class Wall {
      * @param brickDimensionRatio brick dimension ratio (width : height)
      * @return return an array of game level, which is used to determine what bricks are used in the levels
      */
-    private Brick[][] makeLevels(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio){
-        Brick[][] tmp = new Brick[LEVELS_COUNT][];
+    private BrickController[][] makeLevels(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio){
+        BrickController[][] tmp = new BrickController[LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY);
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.STEEL);
@@ -263,21 +263,21 @@ public class Wall {
      * @return boolean which determine whether the brick is impacted
      */
     private boolean impactWall(){
-        for(Brick b : getBricks()){
+        for(BrickController b : getBricks()){
             switch(b.findImpact(getBall())) {
                 //Vertical Impact
-                case Brick.UP_IMPACT:
+                case BrickController.UP_IMPACT:
                     getBall().reverseY();
                     return b.setImpact(getBall().getDown(), Crack.UP);
-                case Brick.DOWN_IMPACT:
+                case BrickController.DOWN_IMPACT:
                     getBall().reverseY();
                     return b.setImpact(getBall().getUp(), Crack.DOWN);
 
                 //Horizontal Impact
-                case Brick.LEFT_IMPACT:
+                case BrickController.LEFT_IMPACT:
                     getBall().reverseX();
                     return b.setImpact(getBall().getRight(), Crack.RIGHT);
-                case Brick.RIGHT_IMPACT:
+                case BrickController.RIGHT_IMPACT:
                     getBall().reverseX();
                     return b.setImpact(getBall().getLeft(), Crack.LEFT);
             }
@@ -344,7 +344,7 @@ public class Wall {
      * method to reset the whole wall of bricks
      */
     public void wallReset(){
-        for(Brick b : getBricks())
+        for(BrickController b : getBricks())
             b.repair();
         brickCount = getBricks().length;
         ballCount = 10;
@@ -418,7 +418,7 @@ public class Wall {
      * @param type type of brick
      * @return brick object
      */
-    private Brick makeBrick(Point point, Dimension size, brickTypes type){
+    private BrickController makeBrick(Point point, Dimension size, brickTypes type){
         GetBrickFactory factory = new GetBrickFactory();
         return factory.getBrick(point,size,type);
     }
@@ -439,11 +439,11 @@ public class Wall {
         this.player = player;
     }
 
-    public Brick[] getBricks() {
+    public BrickController[] getBricks() {
         return bricks;
     }
 
-    public void setBricks(Brick[] bricks) {
+    public void setBricks(BrickController[] bricks) {
         this.bricks = bricks;
     }
 

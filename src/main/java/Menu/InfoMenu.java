@@ -1,6 +1,7 @@
 package Menu;
 
 import Controller.BallController;
+import Controller.BrickController;
 import Model.Ball.Ball;
 import Model.Bricks.Brick;
 import Model.Player;
@@ -159,7 +160,7 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
     @Override
-    public void drawBrick(Brick brick, Graphics2D g2d) {
+    public void drawBrick(BrickController brick, Graphics2D g2d) {
 
     }
 

@@ -17,6 +17,8 @@
  */
 package Model.Bricks;
 
+import Controller.BrickController;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
@@ -25,7 +27,7 @@ import java.util.Random;
 /**
  * class for SteelBrick which extends Brick class
  */
-public class SteelBrick extends Brick {
+public class SteelBrick extends BrickController {
 
     private static final String NAME = "Steel test.Brick";
     private static final Color DEF_INNER = new Color(203, 203, 201);
@@ -44,7 +46,7 @@ public class SteelBrick extends Brick {
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
         rnd = new Random();
-        brickFace = super.brickFace;
+        brickFace = super.getBrickFace();
     }
 
 

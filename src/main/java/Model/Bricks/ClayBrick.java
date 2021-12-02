@@ -1,5 +1,7 @@
 package Model.Bricks;
 
+import Controller.BrickController;
+
 import java.awt.*;
 import java.awt.Point;
 
@@ -9,7 +11,7 @@ import java.awt.Point;
  * class for ClayBrick which extends Brick class
  *
  */
-public class ClayBrick extends Brick {
+public class ClayBrick extends BrickController {
 
     private static final String NAME = "Clay Brick";
     private static final Color DEF_INNER = new Color(178, 34, 34).darker();
@@ -43,7 +45,7 @@ public class ClayBrick extends Brick {
      */
     @Override
     public Shape getBrick() {
-        return super.brickFace;
+        return super.getBrickFace();
     }
 
 

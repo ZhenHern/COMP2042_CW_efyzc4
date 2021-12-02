@@ -1,5 +1,7 @@
 package Model.Bricks;
 
+import Controller.BrickController;
+
 import java.awt.*;
 
 enum brickTypes{
@@ -24,7 +26,7 @@ public class GetBrickFactory {
      * @param brickType type of brick
      * @return brick object to be instantiated
      */
-    public Brick getBrick(Point point, Dimension size, brickTypes brickType) {
+    public BrickController getBrick(Point point, Dimension size, brickTypes brickType) {
         switch (brickType) {
             case CLAY:
                 return new ClayBrick(point, size);

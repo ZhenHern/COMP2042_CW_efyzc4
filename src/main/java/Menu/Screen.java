@@ -1,6 +1,7 @@
 package Menu;
 
 import Controller.BallController;
+import Controller.BrickController;
 import Model.Ball.Ball;
 import Model.Bricks.Brick;
 import Model.Player;
@@ -25,7 +26,7 @@ public interface Screen {
 
     void drawButton(Graphics2D d2s);
 
-    void drawBrick(Brick brick, Graphics2D g2d);
+    void drawBrick(BrickController brick, Graphics2D g2d);
 
     void drawBall(BallController ball, Graphics2D g2d);
 

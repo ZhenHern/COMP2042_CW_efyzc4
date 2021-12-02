@@ -1,6 +1,7 @@
 package Menu;
 
 import Controller.BallController;
+import Controller.BrickController;
 import Model.Player;
 import Model.Ball.Ball;
 import Model.Bricks.Brick;
@@ -147,7 +148,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
         drawBall(wall.getBall(),g2d);
 
-        for(Brick b : wall.getBricks())
+        for(BrickController b : wall.getBricks())
             if(!b.isBroken())
                 drawBrick(b,g2d);
 
@@ -164,7 +165,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param brick bricks that form the wall
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawBrick(Brick brick,Graphics2D g2d){
+    public void drawBrick(BrickController brick, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         g2d.setColor(brick.getInnerColor());
