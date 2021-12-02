@@ -1,9 +1,13 @@
 package Menu;
 
-import Others.*;
-import Ball.Ball;
-import Bricks.Brick;
-import Bricks.Wall;
+import Controller.BallController;
+import Controller.BrickController;
+import Controller.PlayerController;
+import Model.Player;
+import Model.Ball.Ball;
+import Model.Bricks.Brick;
+import Model.Bricks.Wall;
+import View.PlayerView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -146,7 +150,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
         drawBall(wall.getBall(),g2d);
 
-        for(Brick b : wall.getBricks())
+        for(BrickController b : wall.getBricks())
             if(!b.isBroken())
                 drawBrick(b,g2d);
 
@@ -163,7 +167,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param brick bricks that form the wall
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawBrick(Brick brick,Graphics2D g2d){
+    public void drawBrick(BrickController brick, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         g2d.setColor(brick.getInnerColor());
@@ -198,7 +202,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param ball ball which is used to break the bricks
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawBall(Ball ball, Graphics2D g2d){
+    public void drawBall(BallController ball, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = ball.getBallFace();
@@ -218,14 +222,14 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param p player object
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawPlayer(Player p, Graphics2D g2d){
+    public void drawPlayer(PlayerController p, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = p.getPlayerFace();
-        g2d.setColor(Player.INNER_COLOR);
+        g2d.setColor(PlayerView.INNER_COLOR);
         g2d.fill(s);
 
-        g2d.setColor(Player.BORDER_COLOR);
+        g2d.setColor(PlayerView.BORDER_COLOR);
         g2d.draw(s);
 
         g2d.setColor(tmp);

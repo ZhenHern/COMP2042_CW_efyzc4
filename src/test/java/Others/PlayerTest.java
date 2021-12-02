@@ -1,6 +1,8 @@
 package Others;
 
-import Ball.RubberBall;
+import Controller.PlayerController;
+import Model.Ball.RubberBall;
+import Model.Player;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -12,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PlayerTest {
 
-    Player player = Player.getPlayer();
+    PlayerController player = PlayerController.getPlayer();
     Point p1 = new Point(10,20);
     Point p2 =new Point(0,0);
     RubberBall b1 = new RubberBall(p1);

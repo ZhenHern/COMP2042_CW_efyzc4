@@ -159,7 +159,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
 
-            message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
+            message = String.format("Model.Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();

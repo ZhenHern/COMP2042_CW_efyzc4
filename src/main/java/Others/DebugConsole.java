@@ -18,8 +18,9 @@ package Others;/*
 
 
 
-import Ball.Ball;
-import Bricks.Wall;
+import Controller.BallController;
+import Model.Ball.Ball;
+import Model.Bricks.Wall;
 import Menu.GameBoard;
 
 import javax.swing.*;
@@ -121,7 +122,7 @@ public class DebugConsole extends JDialog implements WindowListener{
     @Override
     public void windowActivated(WindowEvent windowEvent) {
         setLocation();
-        Ball b = wall.getBall();
+        BallController b = wall.getBall();
         debugPanel.setValues(b.getSpeedX(),b.getSpeedY());
     }
 

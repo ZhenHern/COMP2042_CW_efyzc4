@@ -7,7 +7,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * JUnit test for Ball class
+ * JUnit test for Model.Ball class
  */
 class BallTest {
     Point p = new Point(10,20);
