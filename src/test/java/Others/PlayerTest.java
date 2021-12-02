@@ -1,6 +1,7 @@
 package Others;
 
-import Ball.RubberBall;
+import Model.Ball.RubberBall;
+import Model.Player;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

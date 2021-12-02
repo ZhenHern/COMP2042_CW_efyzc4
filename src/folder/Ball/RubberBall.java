@@ -24,7 +24,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
 /**
- * class RubberBall which extends folder.Ball.Ball class
+ * class RubberBall which extends folder.Model.Ball.Model.Ball class
  */
 public class RubberBall extends Ball {
 

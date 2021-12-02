@@ -17,12 +17,13 @@
  */
 package Menu;
 
+import Controller.BallController;
+import Model.Player;
 import Others.*;
-import Ball.Ball;
-import Bricks.Brick;
-import Bricks.Portal;
-import Bricks.Wall;
-import org.w3c.dom.css.Rect;
+import Model.Ball.Ball;
+import Model.Bricks.Brick;
+import Model.Bricks.Portal;
+import Model.Bricks.Wall;
 
 
 import javax.swing.*;
@@ -163,7 +164,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
 
-            message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
+            message = String.format("Model.Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
@@ -313,7 +314,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      * @param ball ball which is used to break the bricks
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawBall(Ball ball, Graphics2D g2d){
+    public void drawBall(BallController ball, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = ball.getBallFace();

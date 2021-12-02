@@ -1,9 +1,10 @@
 package Menu;
 
-import Others.*;
-import Ball.Ball;
-import Bricks.Brick;
-import Bricks.Wall;
+import Controller.BallController;
+import Model.Player;
+import Model.Ball.Ball;
+import Model.Bricks.Brick;
+import Model.Bricks.Wall;
 
 import javax.swing.*;
 import java.awt.*;
@@ -198,7 +199,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
      * @param ball ball which is used to break the bricks
      * @param g2d object of Graphics2D which is taken from the "paint" method
      */
-    public void drawBall(Ball ball, Graphics2D g2d){
+    public void drawBall(BallController ball, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
         Shape s = ball.getBallFace();

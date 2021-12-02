@@ -6,7 +6,7 @@ import java.awt.geom.RectangularShape;
 
 /**
  * Created by filippo on 04/09/16.
- * class folder.Ball.Ball
+ * class folder.Model.Ball.Model.Ball
  *
  */
 abstract public class Ball {
@@ -27,7 +27,7 @@ abstract public class Ball {
     private int speedY;
 
     /**
-     * class constructor for folder.Ball.Ball
+     * class constructor for folder.Model.Ball.Model.Ball
      * @param center center of the ball
      * @param radiusA radius of ball
      * @param radiusB radius of ball

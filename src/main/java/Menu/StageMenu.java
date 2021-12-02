@@ -1,8 +1,9 @@
 package Menu;
 
-import Ball.Ball;
-import Bricks.Brick;
-import Others.Player;
+import Controller.BallController;
+import Model.Ball.Ball;
+import Model.Bricks.Brick;
+import Model.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -201,7 +202,7 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void drawBall(Ball ball, Graphics2D g2d) {
+    public void drawBall(BallController ball, Graphics2D g2d) {
 
     }
 
