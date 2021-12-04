@@ -13,6 +13,7 @@ public class HighScore {
 
     private static int score1 = 0;
     private String filename;
+    private File file;
 
     /**
      * class constructor for HighScore which is used to create a file to store the high score
@@ -22,7 +23,8 @@ public class HighScore {
     public HighScore(String filename) {
         this.filename=filename;
         try {
-            File myObj = new File("C:\\Users\\User\\Desktop\\Software-Maintenance-CW\\Software-Maintenance-CW\\src\\main\\resources\\"+filename);
+            File myObj = new File("src\\main\\resources\\"+filename);
+            this.file = myObj;
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
                 System.out.println("Absolute path: " + myObj.getAbsolutePath());
@@ -57,7 +59,7 @@ public class HighScore {
      */
     void writeHighScore(String name,int time){
         try{
-            FileWriter myWriter = new FileWriter("C:\\Users\\User\\Desktop\\Software-Maintenance-CW\\Software-Maintenance-CW\\src\\main\\resources\\"+filename);
+            FileWriter myWriter = new FileWriter("src\\main\\resources\\"+filename);
             String timeUsed = Integer.toString(time);
             myWriter.write(timeUsed);
             myWriter.write(name);
@@ -77,7 +79,7 @@ public class HighScore {
      */
     String readHighScore(){
         try{
-            File myObj = new File("C:\\Users\\User\\Desktop\\Software-Maintenance-CW\\Software-Maintenance-CW\\src\\main\\resources\\"+filename);
+            File myObj = new File("src\\main\\resources\\"+filename);
             Scanner myReader = new Scanner(myObj);
             if (myReader.hasNextLine()) {
                 String data = myReader.nextLine();

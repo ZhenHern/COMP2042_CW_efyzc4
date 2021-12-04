@@ -217,7 +217,7 @@ public class Wall {
         BrickController[][] tmp = new BrickController[LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY);
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.CEMENT);
-        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.STEEL);
+        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.CLAY);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.STEEL,brickTypes.CEMENT);
         tmp[4] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY);
         return tmp;

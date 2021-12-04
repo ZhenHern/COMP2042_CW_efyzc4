@@ -194,7 +194,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                     this.highscore = highscore;
                 }
                 if(stage!=5) {
-                    highscore.readHighScore();
+                    if(highscore == null){
+                        highscore = new HighScore("HighScore"+stage+"txt");
+                    }
+                    this.highscore.readHighScore();
                     if (highscore.newHighScore(recordedTime)) {
                         highScore = Integer.toString(recordedTime);
                         nameInput();
