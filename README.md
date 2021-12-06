@@ -7,7 +7,7 @@ OWA : efyzc4
 ## How To Run
 -Open up the project on IntelliJ IDEA after extracting the zip file.
 
--Download the JavaFX library Version 17.0.1      [Click Here to Download](https://gluonhq.com/products/javafx/).
+-Download the JavaFX library Version 17.0.1 &nbsp;  [Click Here to Download](https://gluonhq.com/products/javafx/).
 
 
 ## Old descriptions
