@@ -2,6 +2,8 @@
 
 Name : Chua Zhen Hern
 OWA : efyzc4
+
+## How To Run
 This is a simple arcace video game.
 Player's goal is to destroy a wall with a small ball.
 The game has  very simple commmand:
