@@ -31,7 +31,15 @@ OWA : efyzc4
   - Primitive obsession is removed ( Enum type is used for brick types )
 - All unused resources are deleted.
 - A Screen interface is created to be implemented by all the menus class
-- 
+- Some of the classes are arranged in MVC pattern
+  - Brick class
+  - Ball class
+  - Player class
+- Encapsulated Fields are used to retain private variables ( setter and getter methods are introduced )
+- Added some design patterns
+  - Applied Singleton design pattern to player class
+  - Applied Factory method design pattern on brick class ( GetBrickFactory class is introduced )
+  - 
 
 
 
