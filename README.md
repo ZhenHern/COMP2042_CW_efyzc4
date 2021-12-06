@@ -9,6 +9,17 @@ OWA : efyzc4
 
 -Download the JavaFX library Version 17.0.1. &nbsp;  [(Click Here to Download)](https://gluonhq.com/products/javafx/)
 
+-Add JavaFX library ( File -> Project Structure -> Libraries )
+
+-Click on the '+' button, Select Java, then direct to the lib folder in your javafx-sdk-17.0.1.
+
+-Click on Edit Configurations ( Modify options -> Add VM options )
+
+-Add the following line into the VM options
+```
+--module-path (JavaFX lib Folder Path) --add-modules=javafx.controls
+```
+
 
 ## Old descriptions
 This is a simple arcace video game.
