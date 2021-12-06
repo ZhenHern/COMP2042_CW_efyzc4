@@ -5,17 +5,13 @@ Name : Chua Zhen Hern
 OWA : efyzc4
 
 ## How To Run
--Open up the project on IntelliJ IDEA after extracting the zip file.
+- Open up the project on IntelliJ IDEA after extracting the zip file.
 
--Download the JavaFX library Version 17.0.1. &nbsp;  [(Click Here to Download)](https://gluonhq.com/products/javafx/)
-
--Add JavaFX library ( File -> Project Structure -> Libraries )
-
--Click on the '+' button, Select Java, then direct to the lib folder in your javafx-sdk-17.0.1.
-
--Click on Edit Configurations ( Modify options -> Add VM options )
-
--Add the following line into the VM options
+- Download the JavaFX library Version 17.0.1. &nbsp;  [(Click Here to Download)](https://gluonhq.com/products/javafx/)
+- Add JavaFX library ( File -> Project Structure -> Libraries )
+- Click on the '+' button, Select Java, then direct to the lib folder in your javafx-sdk-17.0.1.
+- Click on Edit Configurations ( Modify options -> Add VM options )
+- Add the following line into the VM options
 ```
 --module-path (JavaFX lib Folder Path) --add-modules=javafx.controls
 ```
