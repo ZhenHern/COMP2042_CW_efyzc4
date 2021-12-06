@@ -26,10 +26,12 @@ OWA : efyzc4
 - All classes are arranged organizedly by packages.
 - Some of the variable are renamed properly.
 - Code smells identified and removed.
-  - Large classes are broken down to enhance cohesion.
+  - Large classes are broken down to enhance cohesion. ( Crack class is extracted from Brick class )
   - Duplicated codes are removed.
   - Primitive obsession is removed ( Enum type is used for brick types )
-
+- All unused resources are deleted.
+- A Screen interface is created to be implemented by all the menus class
+- 
 
 
 
