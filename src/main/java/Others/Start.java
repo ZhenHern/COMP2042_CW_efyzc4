@@ -1,10 +1,7 @@
 package Others;
 
 import Menu.GameFrame;
-import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -13,10 +10,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.util.Stack;
 
 /**
  * Start class
@@ -25,7 +20,6 @@ public class Start {
     private Stage stage;
     private Scene scene;
     private GridPane gridPane;
-    private GridPane gridPane1;
     private BorderPane borderPane;
     private GameFrame owner;
 

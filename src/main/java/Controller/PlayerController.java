@@ -16,9 +16,6 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package Controller;
-
-import Controller.BallController;
-import Model.Ball.Ball;
 import Model.Player;
 import View.PlayerView;
 
@@ -31,16 +28,11 @@ import java.awt.*;
 public class PlayerController {
 
     private static PlayerController player = null;
-//    public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
-//    public static final Color INNER_COLOR = Color.GREEN;
     private static final int DEF_MOVE_AMOUNT = 5;
 
     private Rectangle playerFace;
     private Rectangle container;
-//    private Point ballPoint;
     private int moveAmount;
-//    private int min;
-//    private int max;
     private int changeDir=0;
 
     private Player pModel;
@@ -64,9 +56,6 @@ public class PlayerController {
         moveAmount = 0;
         playerFace = makeRectangle(width, height);
         pView= new PlayerView();
-//        min = container.x + (width / 2);
-//        max = min + container.width - width;
-
     }
 
     /**

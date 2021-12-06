@@ -1,7 +1,6 @@
 package Model.Bricks;
 
 import Controller.BallController;
-import Model.Ball.Ball;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 

@@ -13,7 +13,6 @@ import java.awt.geom.Point2D;
  */
 abstract public class BrickController  {
 
-    public static final int MIN_CRACK = 1;
     public static final int DEF_CRACK_DEPTH = 1;
     public static final int DEF_STEPS = 35;
 
@@ -32,7 +31,7 @@ abstract public class BrickController  {
     private boolean broken;
 
     private Brick brModel;
-    private BrickView brView;
+
 
 
     /**
@@ -47,10 +46,9 @@ abstract public class BrickController  {
     public BrickController(String name, Point pos,Dimension size,Color border,Color inner,int strength){
 
         broken = false;
-        brModel = new Brick(name);
+        brModel = new Brick(name, border,inner);
         setBrickFace(makeBrickFace(pos,size));
 
-        brView = new BrickView(border,inner);
         this.fullStrength = this.strength = strength;
 
 
@@ -90,7 +88,7 @@ abstract public class BrickController  {
      * @return brick border color
      */
     public Color getBorderColor(){
-        return  brView.getBorderColor();
+        return  brModel.getBorderColor();
     }
 
     /**
@@ -98,7 +96,7 @@ abstract public class BrickController  {
      * @return brick inner color
      */
     public Color getInnerColor(){
-        return brView.getInnerColor();
+        return brModel.getInnerColor();
     }
 
 

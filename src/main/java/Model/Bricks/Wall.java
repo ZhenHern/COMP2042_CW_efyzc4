@@ -21,7 +21,7 @@ import Controller.BallController;
 import Controller.BrickController;
 import Controller.PlayerController;
 import Model.Ball.RubberBall;
-import Model.Player;
+
 
 import java.awt.*;
 import java.awt.geom.Point2D;

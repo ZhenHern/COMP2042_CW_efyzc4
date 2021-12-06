@@ -15,14 +15,8 @@ import java.awt.geom.RectangularShape;
 abstract public class BallController {
 
     private Shape ballFace;
-
-    private Point2D up;
-    private Point2D down;
-    private Point2D left;
-    private Point2D right;
-
     private Ball bModel;
-    private BallView bView;
+
 
     /**
      * class constructor for folder.Model.Ball.Model.Ball
@@ -32,24 +26,10 @@ abstract public class BallController {
      * @param border border color of ball
      */
     public BallController(Point2D center,int radius,Color inner,Color border){
-//        this.center = center;
-//
-//        setUp(new Point2D.Double());
-//        setDown(new Point2D.Double());
-//        setLeft(new Point2D.Double());
-//        setRight(new Point2D.Double());
-//
-//        getUp().setLocation(center.getX(),center.getY()-(radius / 2));
-//        getDown().setLocation(center.getX(),center.getY()+(radius / 2));
-//
-//        getLeft().setLocation(center.getX()-(radius /2),center.getY());
-//        getRight().setLocation(center.getX()+(radius /2),center.getY());
 
-        bModel = new Ball(center, radius);
 
+        bModel = new Ball(center, radius, inner, border);
         ballFace = makeBall(center,radius);
-
-        bView = new BallView(inner, border);
 
     }
 
@@ -123,7 +103,7 @@ abstract public class BallController {
      * @return border color of ball
      */
     public Color getBorderColor(){
-        return bView.getBorder();
+        return bModel.getBorder();
     }
 
     /**
@@ -131,7 +111,7 @@ abstract public class BallController {
      * @return inner color of ball
      */
     public Color getInnerColor(){
-        return bView.getInner();
+        return bModel.getInner();
     }
 
     /**
@@ -200,31 +180,23 @@ abstract public class BallController {
         return bModel.getUp();
     }
 
-//    public void setUp(Point2D up) {
-//        this.up = up;
-//    }
+
 
     public Point2D getDown() {
         return bModel.getDown();
     }
 
-//    public void setDown(Point2D down) {
-//        this.down = down;
-//    }
+
 
     public Point2D getLeft() {
         return bModel.getLeft();
     }
 
-//    public void setLeft(Point2D left) {
-//        this.left = left;
-//    }
+
 
     public Point2D getRight() {
         return bModel.getRight();
     }
 
-//    public void setRight(Point2D right) {
-//        this.right = right;
-//    }
+
 }

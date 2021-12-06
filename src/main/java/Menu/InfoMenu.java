@@ -1,12 +1,5 @@
 package Menu;
 
-import Controller.BallController;
-import Controller.BrickController;
-import Controller.PlayerController;
-import Model.Ball.Ball;
-import Model.Bricks.Brick;
-import Model.Player;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -157,21 +150,6 @@ public class InfoMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.draw(backButton);
             g2d.drawString(BACK_TEXT,50,20);
         }
-
-    }
-
-    @Override
-    public void drawBrick(BrickController brick, Graphics2D g2d) {
-
-    }
-
-    @Override
-    public void drawBall(BallController ball, Graphics2D g2d) {
-
-    }
-
-    @Override
-    public void drawPlayer(PlayerController p, Graphics2D g2d) {
 
     }
 

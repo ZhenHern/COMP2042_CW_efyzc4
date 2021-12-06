@@ -1,31 +1,31 @@
 package View;
 
+import Controller.BallController;
+
 import java.awt.*;
 
 public class BallView {
 
-    private Color border;
-    private Color inner;
+    public BallView(){
 
-    public BallView(Color inner, Color border){
-        this.setBorder(border);
-        this.setInner(inner);
     }
 
+    /**
+     * method to draw the ball
+     * @param ball ball which is used to break the bricks
+     * @param g2d object of Graphics2D which is taken from the "paint" method
+     */
+    public void drawBall(BallController ball, Graphics2D g2d){
+        Color tmp = g2d.getColor();
 
-    public Color getBorder() {
-        return border;
-    }
+        Shape s = ball.getBallFace();
 
-    public void setBorder(Color border) {
-        this.border = border;
-    }
+        g2d.setColor(ball.getInnerColor());
+        g2d.fill(s);
 
-    public Color getInner() {
-        return inner;
-    }
+        g2d.setColor(ball.getBorderColor());
+        g2d.draw(s);
 
-    public void setInner(Color inner) {
-        this.inner = inner;
+        g2d.setColor(tmp);
     }
 }

@@ -25,13 +25,10 @@ import java.awt.*;
  */
 public class Player {
 
-//    private Rectangle playerFace;
-//    private Rectangle container;
+
     private Point ballPoint;
-//    private int moveAmount;
     private int min;
     private int max;
-//    private int changeDir=0;
 
 
     /**
@@ -41,14 +38,7 @@ public class Player {
      * instance method is use to get the player object.
      */
     public Player(Point ballPoint, int width, Rectangle container) {
-//        container = new Rectangle(0,0,600,450);
-//        ballPoint = new Point(300,430);
-//        int width = 150;
-//        int height = 10;
-//        moveAmount = 0;
-//        playerFace = makeRectangle(width, height);
         this.setBallPoint(ballPoint);
-
         setMin(container.x + (width / 2));
         setMax(getMin() + container.width - width);
 

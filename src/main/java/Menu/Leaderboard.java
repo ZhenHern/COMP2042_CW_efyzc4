@@ -1,12 +1,5 @@
 package Menu;
 
-import Controller.BallController;
-import Controller.BrickController;
-import Controller.PlayerController;
-import Model.Ball.Ball;
-import Model.Bricks.Brick;
-import Model.Player;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -192,20 +185,6 @@ public class Leaderboard extends JComponent implements MouseListener, MouseMotio
         }
     }
 
-    @Override
-    public void drawBrick(BrickController brick, Graphics2D g2d) {
-
-    }
-
-    @Override
-    public void drawBall(BallController ball, Graphics2D g2d) {
-
-    }
-
-    @Override
-    public void drawPlayer(PlayerController p, Graphics2D g2d) {
-
-    }
 
 
     /**

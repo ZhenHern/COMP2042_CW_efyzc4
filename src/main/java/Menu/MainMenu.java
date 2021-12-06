@@ -3,9 +3,6 @@ package Menu;
 import Controller.BallController;
 import Controller.BrickController;
 import Controller.PlayerController;
-import Model.Player;
-import Model.Ball.Ball;
-import Model.Bricks.Brick;
 import Model.Bricks.Wall;
 import View.PlayerView;
 

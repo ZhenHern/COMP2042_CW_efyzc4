@@ -1,12 +1,5 @@
 package Menu;
 
-import Controller.BallController;
-import Controller.BrickController;
-import Controller.PlayerController;
-import Model.Ball.Ball;
-import Model.Bricks.Brick;
-import Model.Player;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -197,22 +190,6 @@ public class StageMenu extends JComponent implements MouseListener, MouseMotionL
             g2d.drawString("EXTRA",173,375);
         }
     }
-
-    @Override
-    public void drawBrick(BrickController brick, Graphics2D g2d) {
-
-    }
-
-    @Override
-    public void drawBall(BallController ball, Graphics2D g2d) {
-
-    }
-
-    @Override
-    public void drawPlayer(PlayerController p, Graphics2D g2d) {
-
-    }
-
 
     /**
      * method to determine whether the cursor is in the button area when the mouse is being clicked

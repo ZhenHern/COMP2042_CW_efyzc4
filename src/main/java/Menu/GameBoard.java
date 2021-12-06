@@ -17,15 +17,14 @@
  */
 package Menu;
 
-import Controller.BallController;
+
 import Controller.BrickController;
 import Controller.PlayerController;
-import Model.Player;
 import Others.*;
-import Model.Ball.Ball;
-import Model.Bricks.Brick;
 import Model.Bricks.Portal;
 import Model.Bricks.Wall;
+import View.BallView;
+import View.BrickView;
 import View.PlayerView;
 
 
@@ -81,6 +80,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private DebugConsole debugConsole;
     private GameFrame owner;
     private HighScore highscore;
+
+    private PlayerView pView;
+    private BallView bView;
+    private BrickView brView;
 
 
 
@@ -167,7 +170,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
 
 
-            message = String.format("Model.Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
+            message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
@@ -177,25 +180,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 gameTimer.stop();
             }
             else if(wall.isDone()){
-                if(wall.CURRENT_LEVEL==2) {
-                    HighScore highscore = new HighScore("HighScore1.txt");
-                    this.highscore = highscore;
-                }
-                else if(wall.CURRENT_LEVEL==3){
-                    HighScore highscore = new HighScore("HighScore2.txt");
-                    this.highscore = highscore;
-                }
-                else if(wall.CURRENT_LEVEL==4){
-                    HighScore highscore = new HighScore("HighScore3.txt");
-                    this.highscore = highscore;
-                }
-                else if(wall.CURRENT_LEVEL==5){
-                    HighScore highscore = new HighScore("HighScore4.txt");
-                    this.highscore = highscore;
-                }
                 if(stage!=5) {
                     if(highscore == null){
-                        highscore = new HighScore("HighScore"+stage+"txt");
+                        highscore = new HighScore("HighScore"+stage+".txt");
                     }
                     this.highscore.readHighScore();
                     if (highscore.newHighScore(recordedTime)) {
@@ -245,6 +232,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      */
     public void paint(Graphics g){
 
+        pView = new PlayerView();
+        bView = new BallView();
+        brView = new BrickView();
+
         Graphics2D g2d = (Graphics2D) g;
 
 
@@ -261,14 +252,14 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         }
 
 
-        drawBall(wall.getBall(),g2d);
+        bView.drawBall(wall.getBall(),g2d);
 
         for(BrickController b : wall.getBricks())
             if(!b.isBroken())
-                drawBrick(b,g2d);
+                brView.drawBrick(b,g2d);
 
 
-        drawPlayer(wall.getPlayer(),g2d);
+        pView.drawPlayer(wall.getPlayer(),g2d, c);
 
         if(showPauseMenu)
             drawMenu(g2d);
@@ -297,42 +288,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
-    /**
-     * method to draw the bricks
-     * @param brick bricks that form the wall
-     * @param g2d object of Graphics2D which is taken from the "paint" method
-     */
-    public void drawBrick(BrickController brick, Graphics2D g2d){
-        Color tmp = g2d.getColor();
-
-        g2d.setColor(brick.getInnerColor());
-        g2d.fill(brick.getBrick());
-
-        g2d.setColor(brick.getBorderColor());
-        g2d.draw(brick.getBrick());
-
-
-        g2d.setColor(tmp);
-    }
-
-    /**
-     * method to draw the ball
-     * @param ball ball which is used to break the bricks
-     * @param g2d object of Graphics2D which is taken from the "paint" method
-     */
-    public void drawBall(BallController ball, Graphics2D g2d){
-        Color tmp = g2d.getColor();
-
-        Shape s = ball.getBallFace();
-
-        g2d.setColor(ball.getInnerColor());
-        g2d.fill(s);
-
-        g2d.setColor(ball.getBorderColor());
-        g2d.draw(s);
-
-        g2d.setColor(tmp);
-    }
 
     private void drawPortal1(Graphics2D g2d,Shape portal){
         g2d.draw(portal);
@@ -345,23 +300,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.draw(portal);
     }
 
-    /**
-     * method to draw the player rectangle.
-     * @param p player object which can move left and right
-     * @param g2d object of Graphics2D which is taken from the "paint" method
-     */
-    public void drawPlayer(PlayerController p, Graphics2D g2d){
-        Color tmp = g2d.getColor();
-
-        Shape s = p.getPlayerFace();
-        g2d.setColor(c);
-        g2d.fill(s);
-
-        g2d.setColor(PlayerView.BORDER_COLOR);
-        g2d.draw(s);
-
-        g2d.setColor(tmp);
-    }
 
     /**
      * method to draw the pause folder.Menu
@@ -561,10 +499,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             else if(colorChange == 2){
                 c = Color.GREEN;
                 colorChange = 1;
+
             }
             else if(colorChange == 3){
                 c = Color.ORANGE;
                 colorChange = 2;
+
             }
             else if(colorChange == 4){
                 c = Color.MAGENTA;

@@ -2,7 +2,6 @@ package Model.Ball;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.awt.geom.RectangularShape;
 
 /**
  * Created by filippo on 04/09/16.
@@ -21,12 +20,15 @@ public class Ball {
     private int speedX;
     private int speedY;
 
+    private Color border;
+    private Color inner;
+
     /**
      * class constructor for folder.Model.Ball.Model.Ball
      * @param center center of the ball
      * @param radius radius of ball
      */
-    public Ball(Point2D center,int radius){
+    public Ball(Point2D center,int radius, Color inner, Color border){
         this.center = center;
 
         setUp(new Point2D.Double());
@@ -42,31 +44,11 @@ public class Ball {
 
         speedX = 0;
         speedY = 0;
-    }
-//
-//    /**
-//     * method to create the shape of the ball
-//     * @param center coordinate of the ball center
-//     * @param radius radius of ball
-//     * @return shape of the ball
-//     */
-//    protected abstract Shape makeBall(Point2D center,int radius);
 
-//    /**
-//     * method to change the ball position according to the movements
-//     */
-//    public void move(){
-//        RectangularShape tmp =  (RectangularShape) ballFace;
-//        center.setLocation((center.getX() + speedX),(center.getY() + speedY));
-//        double w = tmp.getWidth();
-//        double h = tmp.getHeight();
-//
-//        tmp.setFrame((center.getX() -(w/2 )),(center.getY() - (h /2 )),w,h);
-//        setPoints(w,h);
-//
-//
-//        ballFace = tmp;
-//    }
+        this.setBorder(border);
+        this.setInner(inner);
+    }
+
 
     /**
      * method to set the speeds of the ball
@@ -93,68 +75,11 @@ public class Ball {
     public void setYSpeed(int s){
         speedY = s;
     }
-//
-//    /**
-//     * method to reverse the horizontal speed of the ball
-//     */
-//    public void reverseX(){
-//        speedX *= -1;
-//    }
-//
-//    /**
-//     * method to reverse the vertical speed of the ball
-//     */
-//    public void reverseY(){
-//        speedY *= -1;
-//    }
 
-//    /**
-//     * method to get ball's border color
-//     * @return border color of ball
-//     */
-//    public Color getBorderColor(){
-//        return border;
-//    }
-//
-//    /**
-//     * method to get the inner color of the ball
-//     * @return inner color of ball
-//     */
-//    public Color getInnerColor(){
-//        return inner;
-//    }
-//
-//    /**
-//     * method to get the coordinate of the ball center
-//     * @return coordinate of the ball center
-//     */
     public Point2D getPosition(){
         return center;
     }
-
-//    /**
-//     * method to get the ball shape
-//     * @return ball shape
-//     */
-//    public Shape getBallFace(){
-//        return ballFace;
-//    }
-
-//    /**
-//     * method to move the ball to a certain position
-//     * @param p position for the ball to be moved to
-//     */
-//    public void moveTo(Point p){
-//        center.setLocation(p);
-//
-//        RectangularShape tmp = (RectangularShape) ballFace;
-//        double w = tmp.getWidth();
-//        double h = tmp.getHeight();
-//
-//        tmp.setFrame((center.getX() -(w / 2)),(center.getY() - (h / 2)),w,h);
-//        ballFace = tmp;
-//    }
-
+    
     /**
      * method to set points for the ball's rectangle which
      * are used when having collision with wall or border of the windoW
@@ -216,5 +141,21 @@ public class Ball {
 
     public void setRight(Point2D right) {
         this.right = right;
+    }
+
+    public Color getBorder() {
+        return border;
+    }
+
+    public void setBorder(Color border) {
+        this.border = border;
+    }
+
+    public Color getInner() {
+        return inner;
+    }
+
+    public void setInner(Color inner) {
+        this.inner = inner;
     }
 }
