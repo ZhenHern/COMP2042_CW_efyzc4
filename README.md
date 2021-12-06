@@ -10,8 +10,7 @@ OWA : efyzc4
 - Download the JavaFX library Version 17.0.1. &nbsp;  [(Click Here to Download)](https://gluonhq.com/products/javafx/)
 - Add JavaFX library ( File -> Project Structure -> Libraries )
 - Click on the '+' button, Select Java, then direct to the lib folder in your javafx-sdk-17.0.1.
-- Click on Edit Configurations ( Modify options -> Add VM options )
-- ![image](https://user-images.githubusercontent.com/93503454/144802698-41ef598c-a7c1-425c-84f7-1e88b0f6c2b5.png)
+- Click on Edit Configurations ( Modify options -> Add VM options )  ![image](https://user-images.githubusercontent.com/93503454/144802698-41ef598c-a7c1-425c-84f7-1e88b0f6c2b5.png)
 
 - Add the following line into the VM options
 ```
