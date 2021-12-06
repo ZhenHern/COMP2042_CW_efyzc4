@@ -20,7 +20,7 @@ OWA : efyzc4
 ```
 --module-path "C:\Users\User\Desktop\javafx-sdk-17.0.1\lib" --add-modules=javafx.controls
 ```
-
+- You can now start running the game.
 
 
 ## Old descriptions
