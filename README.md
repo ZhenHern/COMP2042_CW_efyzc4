@@ -20,6 +20,12 @@ OWA : efyzc4
 
 - You can now start running the game.
 
+
+## Git Use
+- Record of commit history ( Screenshots of commit history )
+- Meaningful commit messages are used when naming the commit 
+- Branching and merging concept is applied
+
 ## Codes Refactoring
 - All classes are arranged organizedly by packages.
 - Some of the variable are renamed properly.
@@ -51,11 +57,11 @@ OWA : efyzc4
 ![image](https://user-images.githubusercontent.com/93503454/144978210-37446ffe-bfd8-4996-a6bc-937856ca1ccd.png) <br/>
 - Added a Instruction screen <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977479-f9c27653-4f95-4c91-9cb3-40527c31c6e9.png) <br/>
-- Added a Leaderboard screen <br/> <br/> 
+- Added a Leaderboard screen which stores permanent high score <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977531-0bea16eb-729d-4ab4-b579-adf13f4ef737.png) <br/>
 - Added a "Select Stage" menu <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977859-c2f4d71b-8754-4b69-86bc-3e62b7659e92.png) <br/>
-- Added a special level(Portal level) <br/> <br/> 
+- Added a special level (Portal level) <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144978365-e2e0e4b6-6e21-41d6-b883-61eadd0d0826.png) <br/>
 - Modify Pause Menu ( Able to change player colour and return to Main Menu ) <br/> <br/>
 ![image](https://user-images.githubusercontent.com/93503454/144979539-d97fb0bd-c34b-4fc1-bec3-1dd6669d41c2.png) <br/>
