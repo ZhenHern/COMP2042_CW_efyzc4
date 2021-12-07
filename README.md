@@ -50,7 +50,7 @@ OWA : efyzc4
 - Implement JavaFX for Start Menu <br/>
 ![image](https://user-images.githubusercontent.com/93503454/144977353-e1eeef8c-0125-4f7a-bc41-a8e9b056ab29.png) <br/>
 - Added a Main Menu screen <br/>
-![image](https://user-images.githubusercontent.com/93503454/144977429-7c1b634c-0258-4ca0-ae78-ddef458616e3.png) <br/>
+![image](https://user-images.githubusercontent.com/93503454/144978210-37446ffe-bfd8-4996-a6bc-937856ca1ccd.png) <br/>
 - Added a Instruction screen <br/>
 ![image](https://user-images.githubusercontent.com/93503454/144977479-f9c27653-4f95-4c91-9cb3-40527c31c6e9.png) <br/>
 - Added a Leaderboard screen <br/>
