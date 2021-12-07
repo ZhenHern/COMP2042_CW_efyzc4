@@ -39,7 +39,15 @@ OWA : efyzc4
 - Added some design patterns
   - Applied Singleton design pattern to player class
   - Applied Factory method design pattern on brick class ( GetBrickFactory class is introduced )
-  - 
+- Meaningful JUnit test added
+  - Brick Test
+  - Player Test
+  - Wall Test
+  - Ball Test
+  - Portal Test 
+
+## Additions
+
 
 
 
