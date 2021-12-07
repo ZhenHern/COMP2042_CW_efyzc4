@@ -65,7 +65,11 @@ OWA : efyzc4
 ![image](https://user-images.githubusercontent.com/93503454/144978365-e2e0e4b6-6e21-41d6-b883-61eadd0d0826.png) <br/>
 - Modify Pause Menu ( Able to change player colour and return to Main Menu ) <br/> <br/>
 ![image](https://user-images.githubusercontent.com/93503454/144979539-d97fb0bd-c34b-4fc1-bec3-1dd6669d41c2.png) <br/>
+- A pop-up dialog will appear to take name input when best record is achieved <br/> <br/>
+![image](https://user-images.githubusercontent.com/93503454/144980851-b0e56456-4a03-46e2-98ad-37c219642e13.png) <br/>
 
+## Javadocs Documentation <br/>
+Javadocs comments are added to most of the classes and methods to explain what they do
 
 
 
