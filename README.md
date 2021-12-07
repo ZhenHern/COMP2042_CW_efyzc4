@@ -69,7 +69,7 @@ OWA : efyzc4
 ![image](https://user-images.githubusercontent.com/93503454/144980851-b0e56456-4a03-46e2-98ad-37c219642e13.png) <br/>
 
 ## Javadocs Documentation <br/>
-Javadocs comments are added to most of the classes and methods to explain what they do
+Javadocs comments are added to most of the classes and methods to explain what they do. 
 
 
 
