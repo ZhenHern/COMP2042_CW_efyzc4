@@ -14,12 +14,10 @@ OWA : efyzc4
 
 - Add the following line into the VM options and then click apply
 ```
---module-path (JavaFX lib Folder Path) --add-modules=javafx.controls
+--module-path "($PATH_to_FX)\javafx-sdk-17.0.1\lib" --add-modules=javafx.controls
 ```
-- In my case, the path looks like this
-```
---module-path "C:\Users\User\Desktop\javafx-sdk-17.0.1\lib" --add-modules=javafx.controls
-```
+
+
 - You can now start running the game.
 
 ## Codes Refactoring
@@ -47,18 +45,20 @@ OWA : efyzc4
   - Portal Test 
 
 ## Additions
-- Implement JavaFX for Start Menu <br/>
+- Implement JavaFX for Start Menu <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977353-e1eeef8c-0125-4f7a-bc41-a8e9b056ab29.png) <br/>
-- Added a Main Menu screen <br/>
+- Added a Main Menu screen <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144978210-37446ffe-bfd8-4996-a6bc-937856ca1ccd.png) <br/>
-- Added a Instruction screen <br/>
+- Added a Instruction screen <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977479-f9c27653-4f95-4c91-9cb3-40527c31c6e9.png) <br/>
-- Added a Leaderboard screen <br/>
+- Added a Leaderboard screen <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977531-0bea16eb-729d-4ab4-b579-adf13f4ef737.png) <br/>
-- Added a "Select Stage" menu <br/>
+- Added a "Select Stage" menu <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144977859-c2f4d71b-8754-4b69-86bc-3e62b7659e92.png) <br/>
-- Added a special level(Portal level) <br/>
+- Added a special level(Portal level) <br/> <br/> 
 ![image](https://user-images.githubusercontent.com/93503454/144978365-e2e0e4b6-6e21-41d6-b883-61eadd0d0826.png) <br/>
+- Modify Pause Menu ( Able to change player colour and return to Main Menu ) <br/> <br/>
+![image](https://user-images.githubusercontent.com/93503454/144979539-d97fb0bd-c34b-4fc1-bec3-1dd6669d41c2.png) <br/>
 
 
 
