@@ -48,16 +48,15 @@ OWA : efyzc4
 
 ## Additions
 - Implement JavaFX for Start Menu <br/>
-![image](https://user-images.githubusercontent.com/93503454/144977353-e1eeef8c-0125-4f7a-bc41-a8e9b056ab29.png)
+![image](https://user-images.githubusercontent.com/93503454/144977353-e1eeef8c-0125-4f7a-bc41-a8e9b056ab29.png) <br/>
 - Added a Main Menu screen <br/>
-![image](https://user-images.githubusercontent.com/93503454/144977429-7c1b634c-0258-4ca0-ae78-ddef458616e3.png)
+![image](https://user-images.githubusercontent.com/93503454/144977429-7c1b634c-0258-4ca0-ae78-ddef458616e3.png) <br/>
 - Added a Instruction screen <br/>
-![image](https://user-images.githubusercontent.com/93503454/144977479-f9c27653-4f95-4c91-9cb3-40527c31c6e9.png)
+![image](https://user-images.githubusercontent.com/93503454/144977479-f9c27653-4f95-4c91-9cb3-40527c31c6e9.png) <br/>
 - Added a Leaderboard screen <br/>
-![image](https://user-images.githubusercontent.com/93503454/144977531-0bea16eb-729d-4ab4-b579-adf13f4ef737.png)
-- Added a "Select Stage" menu
-
-![image](https://user-images.githubusercontent.com/93503454/144977859-c2f4d71b-8754-4b69-86bc-3e62b7659e92.png)
+![image](https://user-images.githubusercontent.com/93503454/144977531-0bea16eb-729d-4ab4-b579-adf13f4ef737.png) <br/>
+- Added a "Select Stage" menu <br/>
+![image](https://user-images.githubusercontent.com/93503454/144977859-c2f4d71b-8754-4b69-86bc-3e62b7659e92.png) <br/>
 
 
 
