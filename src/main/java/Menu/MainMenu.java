@@ -3,6 +3,7 @@ package Menu;
 import Controller.BallController;
 import Controller.BrickController;
 import Controller.PlayerController;
+import Controller.WallController;
 import Model.Bricks.Wall;
 import View.PlayerView;
 
@@ -37,7 +38,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
     private Timer gameTimer;
 
-    private Wall wall;
+    private WallController wall;
 
     private String message;
 
@@ -74,7 +75,7 @@ public class MainMenu extends JComponent implements MouseListener, MouseMotionLi
 
         this.initialize();
         message = "";
-        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(330,430));
+        wall = new WallController(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(330,430));
 
         //initialize the first level
         wall.nextLevel();

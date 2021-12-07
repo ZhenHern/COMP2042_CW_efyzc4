@@ -4,13 +4,6 @@ import Controller.BrickController;
 
 import java.awt.*;
 
-enum brickTypes{
-    CLAY,
-    STEEL,
-    CEMENT;
-
-}
-
 /**
  * Refactor: Factory method design pattern is applied here.
  * abstract class Brick is defined for creating the object,

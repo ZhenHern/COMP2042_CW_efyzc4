@@ -20,6 +20,7 @@ package Menu;
 
 import Controller.BrickController;
 import Controller.PlayerController;
+import Controller.WallController;
 import Others.*;
 import Model.Bricks.Portal;
 import Model.Bricks.Wall;
@@ -60,7 +61,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private int stage=0;
     private int colorChange = 1;
     private String highScore;
-    private Wall wall;
+    private WallController wall;
     private Portal portal;
 
     private String message;
@@ -112,7 +113,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         this.initialize();
         message = "";
 
-        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
+        wall = new WallController(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
         portal = new Portal();
         debugConsole = new DebugConsole(owner,wall,this);
         //initialize the first level

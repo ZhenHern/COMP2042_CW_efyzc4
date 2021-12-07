@@ -1,5 +1,6 @@
 package Model.Bricks;
 
+import Controller.WallController;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WallTest {
 
-    Wall wall = new Wall(new Rectangle(0,0,600, 450),30,3,6/2,new Point(300,430));
+    WallController wall = new WallController(new Rectangle(0,0,600, 450),30,3,6/2,new Point(300,430));
 
 
 
@@ -33,7 +34,7 @@ class WallTest {
         wall.getBall().moveTo(new Point(602,238));
         wall.findImpacts();
         assertEquals(-ballX,wall.getBall().getSpeedX());
-//        assertEquals(30,wall.getBricks().length);
+
 
 
         /**

@@ -16,6 +16,7 @@ package Others;/*
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import Controller.WallController;
 import Model.Bricks.Wall;
 
 import javax.swing.*;
@@ -38,14 +39,14 @@ public class DebugPanel extends JPanel {
     private JSlider ballXSpeed;
     private JSlider ballYSpeed;
 
-    private Wall wall;
+    private WallController wall;
 
     /**
      * class constructor of DebugPanel that define all the
      * functions of the debug panel buttons.
      * @param wall wall object
      */
-    public DebugPanel(Wall wall){
+    public DebugPanel(WallController wall){
 
         this.wall = wall;
 

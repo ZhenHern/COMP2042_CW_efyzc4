@@ -19,6 +19,7 @@ package Others;/*
 
 
 import Controller.BallController;
+import Controller.WallController;
 import Model.Bricks.Wall;
 import Menu.GameBoard;
 
@@ -39,7 +40,7 @@ public class DebugConsole extends JDialog implements WindowListener{
     private JFrame owner;
     private DebugPanel debugPanel;
     private GameBoard gameBoard;
-    private Wall wall;
+    private WallController wall;
 
 
     /**
@@ -48,7 +49,7 @@ public class DebugConsole extends JDialog implements WindowListener{
      * @param wall wall object
      * @param gameBoard GameBoard object
      */
-    public DebugConsole(JFrame owner, Wall wall, GameBoard gameBoard){
+    public DebugConsole(JFrame owner, WallController wall, GameBoard gameBoard){
 
         this.wall = wall;
         this.owner = owner;
