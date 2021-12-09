@@ -39,7 +39,7 @@ OWA : efyzc4
   - Brick class
   - Ball class
   - Player class
-- Encapsulated Fields are used to retain private variables ( setter and getter methods are introduced )
+- Encapsulated Fields are used to retain private variables ( setter and getter methods are introduced for most of the private variables that are used in other classes )
 - Added some design patterns
   - Applied Singleton design pattern to player class
   - Applied Factory method design pattern on brick class ( GetBrickFactory class is introduced )
