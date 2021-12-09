@@ -84,7 +84,7 @@ public class Start {
         //stage settings
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.setTitle("Brick Destroyer");
+        stage.setTitle("BrickModel Destroyer");
         stage.setX(460);
         stage.setY(190);
         stage.hide();

@@ -1,5 +1,5 @@
 package Others;/*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,6 @@ package Others;/*
 
 import Controller.BallController;
 import Controller.WallController;
-import Model.Bricks.Wall;
 import Menu.GameBoard;
 
 import javax.swing.*;

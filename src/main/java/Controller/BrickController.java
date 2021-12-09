@@ -1,7 +1,8 @@
 package Controller;
 
-import Model.Bricks.Brick;
+import Model.Bricks.BrickModel;
 import View.BrickView;
+
 
 import java.awt.*;
 import java.awt.Point;
@@ -9,7 +10,7 @@ import java.awt.geom.Point2D;
 
 /**
  * Created by filippo on 04/09/16.
- * abstract class for Brick
+ * abstract class for BrickModel
  */
 abstract public class BrickController  {
 
@@ -30,12 +31,13 @@ abstract public class BrickController  {
 
     private boolean broken;
 
-    private Brick brModel;
+    private BrickModel brModel;
+    private BrickView brView;
 
 
 
     /**
-     * class constructor for Brick class
+     * class constructor for BrickModel class
      * @param name name of brick
      * @param pos coordinate of the brick
      * @param size size of the brick (dimension)
@@ -46,13 +48,24 @@ abstract public class BrickController  {
     public BrickController(String name, Point pos,Dimension size,Color border,Color inner,int strength){
 
         broken = false;
-        brModel = new Brick(name, border,inner);
+        brModel = new BrickModel(name, border,inner);
+        brView = new BrickView();
         setBrickFace(makeBrickFace(pos,size));
 
         this.fullStrength = this.strength = strength;
 
 
     }
+
+    /**
+     * method to update the view of brick
+     * @param brick BrickController object
+     * @param g2d Graphics2D object
+     */
+    public void updateView(BrickController brick, Graphics2D g2d){
+        this.brView.drawBrick(brick,g2d);
+    }
+
 
     /**
      * abstract method to create a brick object

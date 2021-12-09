@@ -2,7 +2,6 @@ package Others;
 
 import Controller.PlayerController;
 import Model.Ball.RubberBall;
-import Model.Player;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -10,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * JUnit test for Player class
+ * JUnit test for PlayerModel class
  */
 class PlayerTest {
 

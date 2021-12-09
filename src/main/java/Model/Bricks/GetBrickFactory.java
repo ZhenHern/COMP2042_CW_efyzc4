@@ -6,7 +6,7 @@ import java.awt.*;
 
 /**
  * Refactor: Factory method design pattern is applied here.
- * abstract class Brick is defined for creating the object,
+ * abstract class BrickModel is defined for creating the object,
  * but the factory decides which class to instantiate
  */
 public class GetBrickFactory {

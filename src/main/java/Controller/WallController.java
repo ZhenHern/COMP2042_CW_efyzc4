@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@ package Controller;
 import Model.Ball.RubberBall;
 import Model.Bricks.Crack;
 import Model.Bricks.GetBrickFactory;
-import Model.Bricks.Wall;
+import Model.Bricks.WallModel;
 import Model.Bricks.brickTypes;
 
 
@@ -30,7 +30,7 @@ import java.util.Random;
 
 
 /**
- * class Wall
+ * class WallModel
  */
 public class WallController {
 
@@ -44,10 +44,10 @@ public class WallController {
     private BrickController[][] levels;
 
 
-    private Wall wModel;
+    private WallModel wModel;
 
     /**
-     * class constructor for Wall
+     * class constructor for WallModel
      * @param drawArea area of the whole window
      * @param brickCount total number of bricks
      * @param lineCount total number of brick lines
@@ -60,7 +60,7 @@ public class WallController {
 
         levels = makeLevels(drawArea,brickCount,lineCount,brickDimensionRatio);
 
-        wModel = new Wall(drawArea, ballPos);
+        wModel = new WallModel(drawArea, ballPos);
 
         rnd = new Random();
 
@@ -206,7 +206,7 @@ public class WallController {
         BrickController[][] tmp = new BrickController[wModel.LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY);
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.CEMENT);
-        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.CLAY);
+        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY,brickTypes.STEEL);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.STEEL,brickTypes.CEMENT);
         tmp[4] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,brickTypes.CLAY);
         return tmp;
@@ -400,7 +400,7 @@ public class WallController {
 
     /**
      * Refactor : makeBrick method is changed according to
-     * the factory method design pattern. Brick type to be
+     * the factory method design pattern. BrickModel type to be
      * instantiated is done in GetBrickFactory class's getBrick method
      * method to create brick of different types
      * @param point coordinate of brick

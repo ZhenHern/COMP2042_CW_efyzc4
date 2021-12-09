@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@ import java.awt.geom.Rectangle2D;
 public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener, Screen {
 
     private static final String GREETINGS = "Welcome to:";
-    private static final String GAME_TITLE = "Brick Destroy";
+    private static final String GAME_TITLE = "BrickModel Destroy";
     private static final String CREDITS = "Version 0.1";
     private static final String START_TEXT = "Start";
     private static final String MENU_TEXT = "Exit";

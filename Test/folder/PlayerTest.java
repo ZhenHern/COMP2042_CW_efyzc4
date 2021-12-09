@@ -8,7 +8,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * JUnit test for Player class
+ * JUnit test for PlayerModel class
  */
 class PlayerTest {
 

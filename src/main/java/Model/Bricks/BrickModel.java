@@ -5,9 +5,9 @@ import java.awt.*;
 
 /**
  * Created by filippo on 04/09/16.
- * abstract class for Brick
+ * abstract class for BrickModel
  */
-public class Brick  {
+public class BrickModel {
 
     private final Color border;
     private final Color inner;
@@ -15,10 +15,10 @@ public class Brick  {
     private String name;
 
     /**
-     * class constructor for Brick class
+     * class constructor for BrickModel class
      * @param name name of brick
      */
-    public Brick(String name, Color border, Color inner){
+    public BrickModel(String name, Color border, Color inner){
 
         this.name = name;
 

@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@ import java.awt.event.WindowFocusListener;
  */
 public class GameFrame extends JFrame implements WindowFocusListener {
 
-    private static final String DEF_TITLE = "Brick Destroy";
+    private static final String DEF_TITLE = "BrickModel Destroy";
 
 
     /**

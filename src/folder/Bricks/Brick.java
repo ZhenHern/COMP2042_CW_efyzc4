@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  * Created by filippo on 04/09/16.
- * abstract class for Brick
+ * abstract class for BrickModel
  */
 abstract public class Brick  {
 
@@ -42,7 +42,7 @@ abstract public class Brick  {
 
 
     /**
-     * class constructor for Brick class
+     * class constructor for BrickModel class
      * @param name name of brick
      * @param pos coordinate of the brick
      * @param size size of the brick (dimension)

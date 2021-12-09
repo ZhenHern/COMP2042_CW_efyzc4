@@ -8,12 +8,12 @@ import java.awt.Point;
 
 /**
  * Created by filippo on 04/09/16.
- * class for ClayBrick which extends Brick class
+ * class for ClayBrick which extends BrickModel class
  *
  */
 public class ClayBrick extends BrickController {
 
-    private static final String NAME = "Clay Brick";
+    private static final String NAME = "Clay BrickModel";
     private static final Color DEF_INNER = new Color(178, 34, 34).darker();
     private static final Color DEF_BORDER = Color.GRAY;
     private static final int CLAY_STRENGTH = 1;

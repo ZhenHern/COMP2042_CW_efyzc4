@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -25,11 +25,11 @@ import java.util.Random;
 
 
 /**
- * class for SteelBrick which extends Brick class
+ * class for SteelBrick which extends BrickModel class
  */
 public class SteelBrick extends BrickController {
 
-    private static final String NAME = "Steel test.Brick";
+    private static final String NAME = "Steel test.BrickModel";
     private static final Color DEF_INNER = new Color(203, 203, 201);
     private static final Color DEF_BORDER = Color.BLACK;
     private static final int STEEL_STRENGTH = 1;

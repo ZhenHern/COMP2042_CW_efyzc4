@@ -4,7 +4,6 @@ import Controller.BallController;
 import Controller.BrickController;
 import Controller.PlayerController;
 import Controller.WallController;
-import Model.Bricks.Wall;
 import View.PlayerView;
 
 import javax.swing.*;

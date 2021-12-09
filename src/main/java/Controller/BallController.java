@@ -1,7 +1,8 @@
 package Controller;
 
-import Model.Ball.Ball;
+import Model.Ball.BallModel;
 import View.BallView;
+
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -9,17 +10,18 @@ import java.awt.geom.RectangularShape;
 
 /**
  * Created by filippo on 04/09/16.
- * class folder.Model.Ball.Model.Ball
+ * class folder.Model.BallModel.Model.BallModel
  *
  */
 abstract public class BallController {
 
     private Shape ballFace;
-    private Ball bModel;
+    private BallModel bModel;
+    private BallView bView;
 
 
     /**
-     * class constructor for folder.Model.Ball.Model.Ball
+     * class constructor for folder.Model.BallModel.Model.BallModel
      * @param center center of the ball
      * @param radius radius of ball
      * @param inner inner color of ball
@@ -28,7 +30,8 @@ abstract public class BallController {
     public BallController(Point2D center,int radius,Color inner,Color border){
 
 
-        bModel = new Ball(center, radius, inner, border);
+        bModel = new BallModel(center, radius, inner, border);
+        bView =  new BallView();
         ballFace = makeBall(center,radius);
 
     }
@@ -55,6 +58,15 @@ abstract public class BallController {
 
 
         ballFace = tmp;
+    }
+
+    /**
+     * method to update the view of ball
+     * @param ball BallController object
+     * @param g2d Graphics2D object
+     */
+    public void updateView(BallController ball, Graphics2D g2d){
+        this.bView.drawBall(ball,g2d);
     }
 
     /**

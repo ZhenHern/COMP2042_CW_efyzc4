@@ -1,5 +1,5 @@
 /*
- *   test.Brick Destroy - A simple Arcade video game
+ *   test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,6 @@ import Controller.PlayerController;
 import Controller.WallController;
 import Others.*;
 import Model.Bricks.Portal;
-import Model.Bricks.Wall;
 import View.BallView;
 import View.BrickView;
 import View.PlayerView;
@@ -82,9 +81,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private GameFrame owner;
     private HighScore highscore;
 
-    private PlayerView pView;
-    private BallView bView;
-    private BrickView brView;
 
 
 
@@ -233,9 +229,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
      */
     public void paint(Graphics g){
 
-        pView = new PlayerView();
-        bView = new BallView();
-        brView = new BrickView();
 
         Graphics2D g2d = (Graphics2D) g;
 
@@ -253,15 +246,14 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         }
 
 
-        bView.drawBall(wall.getBall(),g2d);
+
+        wall.getBall().updateView(wall.getBall(),g2d);
 
         for(BrickController b : wall.getBricks())
             if(!b.isBroken())
-                brView.drawBrick(b,g2d);
+                b.updateView(b,g2d);
 
-
-        pView.drawPlayer(wall.getPlayer(),g2d, c);
-
+        wall.getPlayer().updateView(wall.getPlayer(),g2d,c);
         if(showPauseMenu)
             drawMenu(g2d);
 

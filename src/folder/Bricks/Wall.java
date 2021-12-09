@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ import java.util.Random;
 
 
 /**
- * class Wall
+ * class WallModel
  */
 public class Wall {
 
@@ -54,7 +54,7 @@ public class Wall {
     private boolean ballLost;
 
     /**
-     * class constructor for Wall
+     * class constructor for WallModel
      * @param drawArea area of the whole window
      * @param brickCount total number of bricks
      * @param lineCount total number of brick lines

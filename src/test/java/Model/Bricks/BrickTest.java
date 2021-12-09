@@ -7,7 +7,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * JUnit test for Brick class
+ * JUnit test for BrickModel class
  */
 class BrickTest {
 

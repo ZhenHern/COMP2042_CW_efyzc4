@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package Controller;
-import Model.Player;
+import Model.PlayerModel;
 import View.PlayerView;
 
 import java.awt.*;
 
 
 /**
- * class Player
+ * class PlayerModel
  */
 public class PlayerController {
 
@@ -35,7 +35,7 @@ public class PlayerController {
     private int moveAmount;
     private int changeDir=0;
 
-    private Player pModel;
+    private PlayerModel pModel;
     private PlayerView pView;
 
 
@@ -51,11 +51,11 @@ public class PlayerController {
         int width = 150;
         int height = 10;
 
-        pModel = new Player(ballPoint, width, container);
+        pModel = new PlayerModel(ballPoint, width, container);
+        pView = new PlayerView();
 
         moveAmount = 0;
         playerFace = makeRectangle(width, height);
-        pView= new PlayerView();
     }
 
     /**
@@ -86,6 +86,16 @@ public class PlayerController {
     private Rectangle makeRectangle(int width,int height){
         Point p = new Point((int)(pModel.getBallPoint().getX() - (width / 2)),(int)pModel.getBallPoint().getY());
         return  new Rectangle(p,new Dimension(width,height));
+    }
+
+    /**
+     * method to update the view of player
+     * @param player PlayerController object
+     * @param g2d Graphics2D object
+     * @param c color object
+     */
+    public void updateView(PlayerController player, Graphics2D g2d, Color c){
+        this.pView.drawPlayer(player,g2d,c);
     }
 
     /**

@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -21,9 +21,9 @@ import java.awt.*;
 
 
 /**
- * class Player
+ * class PlayerModel
  */
-public class Player {
+public class PlayerModel {
 
 
     private Point ballPoint;
@@ -37,7 +37,7 @@ public class Player {
      * Only one instance of player class is created. A get
      * instance method is use to get the player object.
      */
-    public Player(Point ballPoint, int width, Rectangle container) {
+    public PlayerModel(Point ballPoint, int width, Rectangle container) {
         this.setBallPoint(ballPoint);
         setMin(container.x + (width / 2));
         setMax(getMin() + container.width - width);

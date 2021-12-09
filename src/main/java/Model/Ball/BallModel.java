@@ -5,10 +5,10 @@ import java.awt.geom.Point2D;
 
 /**
  * Created by filippo on 04/09/16.
- * class folder.Model.Ball.Model.Ball
+ * class folder.Model.BallModel.Model.BallModel
  *
  */
-public class Ball {
+public class BallModel {
 
     private Point2D center;
 
@@ -24,11 +24,11 @@ public class Ball {
     private Color inner;
 
     /**
-     * class constructor for folder.Model.Ball.Model.Ball
+     * class constructor for folder.Model.BallModel.Model.BallModel
      * @param center center of the ball
      * @param radius radius of ball
      */
-    public Ball(Point2D center,int radius, Color inner, Color border){
+    public BallModel(Point2D center, int radius, Color inner, Color border){
         this.center = center;
 
         setUp(new Point2D.Double());
@@ -79,20 +79,7 @@ public class Ball {
     public Point2D getPosition(){
         return center;
     }
-    
-    /**
-     * method to set points for the ball's rectangle which
-     * are used when having collision with wall or border of the windoW
-     * @param width width of the ball's rectangle
-     * @param height height of the ball's rectangle
-     */
-    private void setPoints(double width,double height){
-        getUp().setLocation(center.getX(),center.getY()-(height / 2));
-        getDown().setLocation(center.getX(),center.getY()+(height / 2));
 
-        getLeft().setLocation(center.getX()-(width / 2),center.getY());
-        getRight().setLocation(center.getX()+(width / 2),center.getY());
-    }
 
     /**
      * method to get the horizontal speed of the ball

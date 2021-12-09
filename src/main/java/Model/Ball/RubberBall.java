@@ -1,5 +1,5 @@
 /*
- *  test.Brick Destroy - A simple Arcade video game
+ *  test.BrickModel Destroy - A simple Arcade video game
  *   Copyright (C) 2017  Filippo Ranza
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
 /**
- * class RubberBall which extends folder.Model.Ball.Model.Ball class
+ * class RubberBall which extends folder.Model.BallModel.Model.BallModel class
  */
 public class RubberBall extends BallController {
 
