@@ -17,7 +17,7 @@ OWA : efyzc4
 --module-path "($PATH_to_FX)\javafx-sdk-17.0.1\lib" --add-modules=javafx.controls
 ```
 
-- Right click on pom.xml -> Choose Maven -> Reload Project
+
 - You can now start running the game.
 
 

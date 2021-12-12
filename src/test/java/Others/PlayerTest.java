@@ -15,7 +15,7 @@ class PlayerTest {
 
     PlayerController player = PlayerController.getPlayer();
     Point p1 = new Point(10,20);
-    Point p2 =new Point(0,0);
+    Point p2 =new Point(354,430);
     RubberBall b1 = new RubberBall(p1);
     RubberBall b2 = new RubberBall(p2);
 
@@ -36,7 +36,7 @@ class PlayerTest {
      */
     @Test
     void moveTo() {
-        player.moveTo(new Point(20,0));
-        assertEquals(new Point(5,0),player.getPlayerFace().getLocation());
+        player.moveTo(new Point(155,0));
+        assertEquals(new Point(80,0),player.getPlayerFace().getLocation());
     }
 }

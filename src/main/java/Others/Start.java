@@ -47,7 +47,7 @@ public class Start {
 
 
         //create buttons
-        Font font1 = Font.font("Brush Script MT", FontWeight.BOLD, 25);
+        Font font1 = Font.font("", FontWeight.BOLD, 25);
         Button startButton= new Button("START  GAME");
         startButton.setMinSize(250,100);
         startButton.setFont(font1);
@@ -64,7 +64,7 @@ public class Start {
 
 
         //display words
-        Font font2 = Font.font("Brush Script MT", FontWeight.BOLD, 50);
+        Font font2 = Font.font("", FontWeight.BOLD, 50);
         Text title = new Text("BRICK  DESTROYER");
         title.setFont(font2);
         title.setFill(Color.WHITE);
