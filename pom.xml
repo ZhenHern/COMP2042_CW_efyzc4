@@ -39,6 +39,7 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
     <build>
+	<pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -47,11 +48,12 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>GraphicsMain</mainClass>
+                            <mainClass>Others.GraphicsMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
+	</pluginManagement>
     </build>
 </project>
